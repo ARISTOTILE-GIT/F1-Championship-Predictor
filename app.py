@@ -156,8 +156,8 @@ def add_bg_media():
         st.markdown(f"""
         <style>
         #myVideo {{
-            
-            top: 200px;
+            position: center;
+            top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
