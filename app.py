@@ -50,10 +50,11 @@ def apply_glass_theme():
     left: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: contain; /* shows full video */
-    background: black;
+    object-fit: cover;
+    object-position: center top;
     z-index: -100;
 }
+
 
 
     /* 2. SIDEBAR - TRUE GLASS EFFECT */
