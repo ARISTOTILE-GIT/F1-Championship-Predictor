@@ -13,19 +13,22 @@ st.set_page_config(
 )
 
 # ===============================
-# LOAD MODEL (ROOT SAFE)
+# LOAD MODEL (ROOT DIRECTORY SAFE)
 # ===============================
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(os.getcwd(), "f1_champion_predictor.pkl")
+    # This gets the folder where app.py is located (Root)
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(base_dir, "f1_champion_predictor.pkl")
 
     if not os.path.exists(model_path):
-        st.error("❌ Model file `f1_champion_predictor.pkl` not found in root directory.")
-        st.info("Make sure the model file is pushed to GitHub and deployed correctly.")
+        st.error(f"❌ Model file not found at: {model_path}")
+        st.warning("Please make sure 'f1_champion_predictor.pkl' is uploaded to the GitHub repository.")
         st.stop()
 
     return joblib.load(model_path)
 
+# Load the model
 model = load_model()
 
 # ===============================
@@ -37,7 +40,7 @@ page = st.sidebar.radio(
     ["Home", "Predict from File", "Custom Prediction", "Tech Stack", "About"]
 )
 st.sidebar.markdown("---")
-st.sidebar.caption("Built by **Totz**")
+st.sidebar.caption("Built by **Totz** 🚀")
 
 # ===============================
 # HOME
@@ -50,7 +53,6 @@ if page == "Home":
     )
 
     col1, col2, col3 = st.columns(3)
-
     with col1:
         st.info("📊 Upload season data")
     with col2:
@@ -59,12 +61,12 @@ if page == "Home":
         st.info("🏆 Champion prediction")
 
     st.markdown("---")
-    st.success("👉 Go to **Predict from File** to upload your CSV")
+    st.success("👉 Go to **Predict from File** in the sidebar to start!")
 
 # ===============================
 # PREDICT FROM FILE
 # ===============================
-elif page == "🔮 Predict from File":
+elif page == "Predict from File":
     st.markdown("## 📂 Upload Season CSV")
     st.caption("Required columns: driver, team, points, wins, podiums")
 
@@ -79,9 +81,11 @@ elif page == "🔮 Predict from File":
                 st.error(f"CSV must contain these columns: {required_cols}")
             else:
                 features = ["points", "wins", "podiums"]
+                # Predict Probabilities
                 probs = model.predict_proba(df[features])[:, 1]
                 df["Win Probability (%)"] = probs * 100
 
+                # Find Winner
                 winner = df.loc[df["Win Probability (%)"].idxmax()]
 
                 st.markdown("---")
@@ -94,6 +98,9 @@ elif page == "🔮 Predict from File":
                     "Win Probability",
                     f"{winner['Win Probability (%)']:.2f}%"
                 )
+                
+                if winner["Win Probability (%)"] > 50:
+                    st.balloons()
 
                 st.markdown("---")
                 st.markdown("### 🏁 Championship Standings")
@@ -112,8 +119,9 @@ elif page == "🔮 Predict from File":
 # ===============================
 # CUSTOM PREDICTION
 # ===============================
-elif page == "🎮 Custom Prediction":
+elif page == "Custom Prediction":
     st.markdown("## 🎮 Custom Season Prediction")
+    st.write("Enter stats to see if you have what it takes to win!")
 
     col1, col2, col3 = st.columns(3)
 
@@ -134,9 +142,10 @@ elif page == "🎮 Custom Prediction":
 
         st.markdown("---")
         if prob > 0.15:
-            st.success(f"🏆 Champion Potential: **{prob:.2%}**")
+            st.success(f"🏆 Champion Potential! Win Probability: **{prob:.2%}**")
+            st.balloons()
         else:
-            st.warning(f"❌ Not enough to win: **{prob:.2%}**")
+            st.error(f"❌ Not enough to win. Win Probability: **{prob:.2%}**")
 
 # ===============================
 # TECH STACK
@@ -144,11 +153,11 @@ elif page == "🎮 Custom Prediction":
 elif page == "Tech Stack":
     st.markdown("## 🛠️ Tech Stack")
     st.markdown("""
-    - **Python**
-    - **Streamlit**
-    - **XGBoost**
-    - **Scikit-learn**
-    - **Pandas & NumPy**
+    - **Python**: Core Language
+    - **Streamlit**: Web Interface
+    - **XGBoost**: Machine Learning Model
+    - **Scikit-learn**: Data Processing
+    - **Pandas**: Data Analysis
     """)
 
 # ===============================
@@ -160,15 +169,15 @@ elif page == "About":
         "This AI project predicts Formula 1 championship outcomes "
         "using historical driver performance data from **2010–2024**."
     )
+    st.markdown("**Developed by Totz** 🚀")
 
 # ===============================
 # FOOTER
 # ===============================
 st.markdown(
     """
-    <hr>
-    <div style="text-align:center; color:gray;">
-        Developed by Totz 🚀
+    <div style="position: fixed; bottom: 0; width: 100%; text-align: center; color: grey; padding: 10px; background-color: white;">
+        F1 Predictor Project | Developed by Totz
     </div>
     """,
     unsafe_allow_html=True
