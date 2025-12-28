@@ -1,0 +1,351 @@
+year,driver,team,points,wins,podiums,is_champion
+2010,Mark Webber,Red Bull,242.0,4,10,0
+2010,Sebastian Vettel,Red Bull,256.0,5,10,1
+2010,Fernando Alonso,Ferrari,252.0,5,10,0
+2010,Nico Rosberg,Mercedes,142.0,0,3,0
+2010,Robert Kubica,Renault,136.0,0,3,0
+2010,Lewis Hamilton,McLaren,240.0,3,9,0
+2010,Felipe Massa,Ferrari,144.0,0,5,0
+2010,Jenson Button,McLaren,214.0,2,7,0
+2010,Michael Schumacher,Mercedes,72.0,0,0,0
+2010,Adrian Sutil,Force India,47.0,0,0,0
+2010,Rubens Barrichello,Williams,47.0,0,0,0
+2010,Pedro de la Rosa,Sauber,6.0,0,0,0
+2010,Vitantonio Liuzzi,Force India,21.0,0,0,0
+2010,Nico Hülkenberg,Williams,22.0,0,0,0
+2010,Vitaly Petrov,Renault,27.0,0,0,0
+2010,Kamui Kobayashi,Sauber,32.0,0,0,0
+2010,Sakon Yamamoto,HRT,0.0,0,0,0
+2010,Christian Klien,HRT,0.0,0,0,0
+2010,Timo Glock,Virgin,0.0,0,0,0
+2010,Lucas di Grassi,Virgin,0.0,0,0,0
+2010,Jarno Trulli,Lotus,0.0,0,0,0
+2010,Heikki Kovalainen,Lotus,0.0,0,0,0
+2010,Bruno Senna,HRT,0.0,0,0,0
+2010,Karun Chandhok,HRT,0.0,0,0,0
+2010,Nick Heidfeld,Sauber,6.0,0,0,0
+2010,Jaime Alguersuari,Toro Rosso,5.0,0,0,0
+2010,Sébastien Buemi,Toro Rosso,8.0,0,0,0
+2011,Felipe Massa,Ferrari,118.0,0,0,0
+2011,Vitaly Petrov,Renault,37.0,0,1,0
+2011,Nico Rosberg,Mercedes,89.0,0,0,0
+2011,Michael Schumacher,Mercedes,76.0,0,0,0
+2011,Adrian Sutil,Force India,42.0,0,0,0
+2011,Karun Chandhok,Lotus,0.0,0,0,0
+2011,Daniel Ricciardo,HRT,0.0,0,0,0
+2011,Jérôme d'Ambrosio,Virgin,0.0,0,0,0
+2011,Timo Glock,Virgin,0.0,0,0,0
+2011,Narain Karthikeyan,HRT,0.0,0,0,0
+2011,Nick Heidfeld,Renault,34.0,0,1,0
+2011,Kamui Kobayashi,Sauber,30.0,0,0,0
+2011,Paul di Resta,Force India,27.0,0,0,0
+2011,Jaime Alguersuari,Toro Rosso,26.0,0,0,0
+2011,Sébastien Buemi,Toro Rosso,15.0,0,0,0
+2011,Sergio Pérez,Sauber,14.0,0,0,0
+2011,Mark Webber,Red Bull,258.0,1,10,0
+2011,Jenson Button,McLaren,270.0,3,12,0
+2011,Sebastian Vettel,Red Bull,392.0,11,17,1
+2011,Lewis Hamilton,McLaren,227.0,3,6,0
+2011,Fernando Alonso,Ferrari,257.0,1,10,0
+2011,Heikki Kovalainen,Lotus,0.0,0,0,0
+2011,Vitantonio Liuzzi,HRT,0.0,0,0,0
+2011,Pedro de la Rosa,Sauber,0.0,0,0,0
+2011,Rubens Barrichello,Williams,4.0,0,0,0
+2011,Bruno Senna,Renault,2.0,0,0,0
+2011,Pastor Maldonado,Williams,1.0,0,0,0
+2011,Jarno Trulli,Lotus,0.0,0,0,0
+2012,Sergio Pérez,Sauber,66.0,0,3,0
+2012,Daniel Ricciardo,Toro Rosso,10.0,0,0,0
+2012,Vitaly Petrov,Caterham,0.0,0,0,0
+2012,Timo Glock,Marussia,0.0,0,0,0
+2012,Michael Schumacher,Mercedes,49.0,0,1,0
+2012,Paul di Resta,Force India,46.0,0,0,0
+2012,Nico Hülkenberg,Force India,63.0,0,0,0
+2012,Kamui Kobayashi,Sauber,60.0,0,1,0
+2012,Jean-Éric Vergne,Toro Rosso,16.0,0,0,0
+2012,Fernando Alonso,Ferrari,278.0,3,13,0
+2012,Kimi Räikkönen,Lotus F1,207.0,1,7,0
+2012,Lewis Hamilton,McLaren,190.0,4,7,0
+2012,Jenson Button,McLaren,188.0,3,6,0
+2012,Mark Webber,Red Bull,179.0,2,4,0
+2012,Pastor Maldonado,Williams,45.0,1,1,0
+2012,Bruno Senna,Williams,31.0,0,0,0
+2012,Sebastian Vettel,Red Bull,281.0,5,10,1
+2012,Romain Grosjean,Lotus F1,96.0,0,3,0
+2012,Felipe Massa,Ferrari,122.0,0,2,0
+2012,Nico Rosberg,Mercedes,93.0,1,2,0
+2012,Charles Pic,Marussia,0.0,0,0,0
+2012,Heikki Kovalainen,Caterham,0.0,0,0,0
+2012,Jérôme d'Ambrosio,Lotus F1,0.0,0,0,0
+2012,Narain Karthikeyan,HRT,0.0,0,0,0
+2012,Pedro de la Rosa,HRT,0.0,0,0,0
+2013,Esteban Gutiérrez,Sauber,6.0,0,0,0
+2013,Jean-Éric Vergne,Toro Rosso,13.0,0,0,0
+2013,Daniel Ricciardo,Toro Rosso,20.0,0,0,0
+2013,Adrian Sutil,Force India,29.0,0,0,0
+2013,Paul di Resta,Force India,48.0,0,0,0
+2013,Sergio Pérez,McLaren,49.0,0,0,0
+2013,Nico Hülkenberg,Sauber,51.0,0,0,0
+2013,Jenson Button,McLaren,73.0,0,0,0
+2013,Felipe Massa,Ferrari,112.0,0,1,0
+2013,Romain Grosjean,Lotus F1,132.0,0,6,0
+2013,Nico Rosberg,Mercedes,171.0,2,4,0
+2013,Sebastian Vettel,Red Bull,397.0,13,16,1
+2013,Kimi Räikkönen,Lotus F1,183.0,1,8,0
+2013,Fernando Alonso,Ferrari,242.0,2,9,0
+2013,Mark Webber,Red Bull,199.0,0,8,0
+2013,Lewis Hamilton,Mercedes,189.0,1,5,0
+2013,Max Chilton,Marussia,0.0,0,0,0
+2013,Heikki Kovalainen,Lotus F1,0.0,0,0,0
+2013,Jules Bianchi,Marussia,0.0,0,0,0
+2013,Valtteri Bottas,Williams,4.0,0,0,0
+2013,Giedo van der Garde,Caterham,0.0,0,0,0
+2013,Pastor Maldonado,Williams,1.0,0,0,0
+2013,Charles Pic,Caterham,0.0,0,0,0
+2014,Will Stevens,Caterham,0.0,0,0,0
+2014,Daniil Kvyat,Toro Rosso,8.0,0,0,0
+2014,Pastor Maldonado,Lotus F1,2.0,0,0,0
+2014,Valtteri Bottas,Williams,186.0,0,6,0
+2014,Kamui Kobayashi,Caterham,0.0,0,0,0
+2014,Max Chilton,Marussia,0.0,0,0,0
+2014,Esteban Gutiérrez,Sauber,0.0,0,0,0
+2014,Marcus Ericsson,Caterham,0.0,0,0,0
+2014,Adrian Sutil,Sauber,0.0,0,0,0
+2014,Jules Bianchi,Marussia,2.0,0,0,0
+2014,André Lotterer,Caterham,0.0,0,0,0
+2014,Sergio Pérez,Force India,59.0,0,1,0
+2014,Jean-Éric Vergne,Toro Rosso,22.0,0,0,0
+2014,Romain Grosjean,Lotus F1,8.0,0,0,0
+2014,Kevin Magnussen,McLaren,55.0,0,1,0
+2014,Kimi Räikkönen,Ferrari,55.0,0,0,0
+2014,Lewis Hamilton,Mercedes,384.0,11,16,1
+2014,Nico Rosberg,Mercedes,317.0,5,15,0
+2014,Daniel Ricciardo,Red Bull,238.0,3,8,0
+2014,Jenson Button,McLaren,126.0,0,1,0
+2014,Sebastian Vettel,Red Bull,167.0,0,4,0
+2014,Fernando Alonso,Ferrari,161.0,0,2,0
+2014,Felipe Massa,Williams,134.0,0,3,0
+2014,Nico Hülkenberg,Force India,96.0,0,0,0
+2015,Lewis Hamilton,Mercedes,381.0,10,17,1
+2015,Will Stevens,Manor Marussia,0.0,0,0,0
+2015,Alexander Rossi,Manor Marussia,0.0,0,0,0
+2015,Roberto Merhi,Manor Marussia,0.0,0,0,0
+2015,Marcus Ericsson,Sauber,9.0,0,0,0
+2015,Kevin Magnussen,McLaren,0.0,0,0,0
+2015,Daniil Kvyat,Red Bull,95.0,0,1,0
+2015,Daniel Ricciardo,Red Bull,92.0,0,2,0
+2015,Sergio Pérez,Force India,78.0,0,1,0
+2015,Nico Hülkenberg,Force India,58.0,0,0,0
+2015,Romain Grosjean,Lotus F1,51.0,0,1,0
+2015,Max Verstappen,Toro Rosso,49.0,0,0,0
+2015,Felipe Nasr,Sauber,27.0,0,0,0
+2015,Pastor Maldonado,Lotus F1,27.0,0,0,0
+2015,Carlos Sainz,Toro Rosso,18.0,0,0,0
+2015,Jenson Button,McLaren,16.0,0,0,0
+2015,Fernando Alonso,McLaren,11.0,0,0,0
+2015,Valtteri Bottas,Williams,136.0,0,2,0
+2015,Kimi Räikkönen,Ferrari,150.0,0,3,0
+2015,Sebastian Vettel,Ferrari,278.0,3,13,0
+2015,Felipe Massa,Williams,121.0,0,2,0
+2015,Nico Rosberg,Mercedes,322.0,6,15,0
+2016,Rio Haryanto,Manor Marussia,0.0,0,0,0
+2016,Esteban Gutiérrez,Haas F1 Team,0.0,0,0,0
+2016,Marcus Ericsson,Sauber,0.0,0,0,0
+2016,Esteban Ocon,Manor Marussia,0.0,0,0,0
+2016,Stoffel Vandoorne,McLaren,1.0,0,0,0
+2016,Felipe Nasr,Sauber,2.0,0,0,0
+2016,Jolyon Palmer,Renault,1.0,0,0,0
+2016,Pascal Wehrlein,Manor Marussia,1.0,0,0,0
+2016,Jenson Button,McLaren,21.0,0,0,0
+2016,Daniil Kvyat,Red Bull,25.0,0,1,0
+2016,Romain Grosjean,Haas F1 Team,29.0,0,0,0
+2016,Kevin Magnussen,Renault,7.0,0,0,0
+2016,Carlos Sainz,Toro Rosso,46.0,0,0,0
+2016,Kimi Räikkönen,Ferrari,186.0,0,4,0
+2016,Max Verstappen,Toro Rosso,204.0,1,7,0
+2016,Sebastian Vettel,Ferrari,212.0,0,7,0
+2016,Daniel Ricciardo,Red Bull,256.0,1,8,0
+2016,Lewis Hamilton,Mercedes,380.0,10,17,0
+2016,Nico Rosberg,Mercedes,385.0,9,16,1
+2016,Valtteri Bottas,Williams,85.0,0,1,0
+2016,Sergio Pérez,Force India,101.0,0,2,0
+2016,Felipe Massa,Williams,53.0,0,0,0
+2016,Nico Hülkenberg,Force India,72.0,0,0,0
+2016,Fernando Alonso,McLaren,54.0,0,0,0
+2017,Daniil Kvyat,Toro Rosso,5.0,0,0,0
+2017,Pascal Wehrlein,Sauber,5.0,0,0,0
+2017,Jolyon Palmer,Renault,8.0,0,0,0
+2017,Stoffel Vandoorne,McLaren,13.0,0,0,0
+2017,Fernando Alonso,McLaren,17.0,0,0,0
+2017,Sebastian Vettel,Ferrari,317.0,5,13,0
+2017,Lewis Hamilton,Mercedes,363.0,9,13,1
+2017,Valtteri Bottas,Mercedes,305.0,3,13,0
+2017,Brendon Hartley,Toro Rosso,0.0,0,0,0
+2017,Antonio Giovinazzi,Sauber,0.0,0,0,0
+2017,Marcus Ericsson,Sauber,0.0,0,0,0
+2017,Pierre Gasly,Toro Rosso,0.0,0,0,0
+2017,Paul di Resta,Williams,0.0,0,0,0
+2017,Jenson Button,McLaren,0.0,0,0,0
+2017,Romain Grosjean,Haas F1 Team,28.0,0,0,0
+2017,Lance Stroll,Williams,40.0,0,1,0
+2017,Felipe Massa,Williams,43.0,0,0,0
+2017,Nico Hülkenberg,Renault,43.0,0,0,0
+2017,Carlos Sainz,Toro Rosso,54.0,0,0,0
+2017,Esteban Ocon,Force India,87.0,0,0,0
+2017,Sergio Pérez,Force India,100.0,0,0,0
+2017,Max Verstappen,Red Bull,168.0,2,4,0
+2017,Daniel Ricciardo,Red Bull,200.0,1,9,0
+2017,Kimi Räikkönen,Ferrari,205.0,0,7,0
+2017,Kevin Magnussen,Haas F1 Team,19.0,0,0,0
+2018,Sergey Sirotkin,Williams,1.0,0,0,0
+2018,Charles Leclerc,Sauber,39.0,0,0,0
+2018,Romain Grosjean,Haas F1 Team,37.0,0,0,0
+2018,Pierre Gasly,Toro Rosso,29.0,0,0,0
+2018,Brendon Hartley,Toro Rosso,4.0,0,0,0
+2018,Carlos Sainz,Renault,53.0,0,0,0
+2018,Kevin Magnussen,Haas F1 Team,56.0,0,0,0
+2018,Kimi Räikkönen,Ferrari,251.0,1,11,0
+2018,Max Verstappen,Red Bull,249.0,2,10,0
+2018,Valtteri Bottas,Mercedes,247.0,0,8,0
+2018,Daniel Ricciardo,Red Bull,170.0,2,2,0
+2018,Nico Hülkenberg,Renault,69.0,0,0,0
+2018,Sergio Pérez,Force India,62.0,0,1,0
+2018,Sebastian Vettel,Ferrari,320.0,5,12,0
+2018,Lewis Hamilton,Mercedes,408.0,11,16,1
+2018,Esteban Ocon,Force India,49.0,0,0,0
+2018,Fernando Alonso,McLaren,50.0,0,0,0
+2018,Marcus Ericsson,Sauber,9.0,0,0,0
+2018,Lance Stroll,Williams,6.0,0,0,0
+2018,Stoffel Vandoorne,McLaren,12.0,0,0,0
+2019,Kimi Räikkönen,Alfa Romeo,43.0,0,0,0
+2019,Carlos Sainz,McLaren,96.0,0,1,0
+2019,Pierre Gasly,Red Bull,95.0,0,1,0
+2019,Charles Leclerc,Ferrari,264.0,2,10,0
+2019,Sebastian Vettel,Ferrari,240.0,1,9,0
+2019,Valtteri Bottas,Mercedes,326.0,4,15,0
+2019,Max Verstappen,Red Bull,278.0,3,9,0
+2019,Sergio Pérez,Racing Point,52.0,0,0,0
+2019,Alexander Albon,Toro Rosso,92.0,0,0,0
+2019,Antonio Giovinazzi,Alfa Romeo,14.0,0,0,0
+2019,George Russell,Williams,0.0,0,0,0
+2019,Lando Norris,McLaren,49.0,0,0,0
+2019,Lewis Hamilton,Mercedes,413.0,11,17,1
+2019,Daniil Kvyat,Toro Rosso,37.0,0,1,0
+2019,Kevin Magnussen,Haas F1 Team,20.0,0,0,0
+2019,Robert Kubica,Williams,1.0,0,0,0
+2019,Daniel Ricciardo,Renault,54.0,0,0,0
+2019,Nico Hülkenberg,Renault,37.0,0,0,0
+2019,Lance Stroll,Racing Point,21.0,0,0,0
+2019,Romain Grosjean,Haas F1 Team,8.0,0,0,0
+2020,Max Verstappen,Red Bull,214.0,2,3,0
+2020,Carlos Sainz,McLaren,105.0,0,1,0
+2020,Daniel Ricciardo,Renault,119.0,0,2,0
+2020,Jack Aitken,Williams,0.0,0,0,0
+2020,Sergio Pérez,Racing Point,125.0,1,1,0
+2020,Lewis Hamilton,Mercedes,347.0,11,4,1
+2020,Valtteri Bottas,Mercedes,223.0,2,4,0
+2020,Alexander Albon,Red Bull,105.0,0,0,0
+2020,Charles Leclerc,Ferrari,98.0,0,1,0
+2020,Lando Norris,McLaren,97.0,0,1,0
+2020,Pierre Gasly,AlphaTauri,75.0,1,1,0
+2020,Pietro Fittipaldi,Haas F1 Team,0.0,0,0,0
+2020,Nicholas Latifi,Williams,0.0,0,0,0
+2020,Kevin Magnussen,Haas F1 Team,1.0,0,0,0
+2020,Romain Grosjean,Haas F1 Team,2.0,0,0,0
+2020,Daniil Kvyat,AlphaTauri,32.0,0,0,0
+2020,Sebastian Vettel,Ferrari,33.0,0,0,0
+2020,Esteban Ocon,Renault,62.0,0,1,0
+2020,Lance Stroll,Racing Point,75.0,0,2,0
+2020,George Russell,Williams,3.0,0,0,0
+2020,Antonio Giovinazzi,Alfa Romeo,4.0,0,0,0
+2020,Kimi Räikkönen,Alfa Romeo,4.0,0,0,0
+2020,Nico Hülkenberg,Racing Point,10.0,0,0,0
+2021,Kimi Räikkönen,Alfa Romeo,10.0,0,0,0
+2021,Nicholas Latifi,Williams,7.0,0,0,0
+2021,Antonio Giovinazzi,Alfa Romeo,3.0,0,0,0
+2021,George Russell,Williams,16.0,0,1,0
+2021,Mick Schumacher,Haas F1 Team,0.0,0,0,0
+2021,Max Verstappen,Red Bull,395.5,10,18,1
+2021,Valtteri Bottas,Mercedes,226.0,1,11,0
+2021,Lewis Hamilton,Mercedes,387.5,8,17,0
+2021,Robert Kubica,Alfa Romeo,0.0,0,0,0
+2021,Nikita Mazepin,Haas F1 Team,0.0,0,0,0
+2021,Pierre Gasly,AlphaTauri,110.0,0,1,0
+2021,Daniel Ricciardo,McLaren,115.0,1,1,0
+2021,Charles Leclerc,Ferrari,159.0,0,1,0
+2021,Lando Norris,McLaren,160.0,0,4,0
+2021,Carlos Sainz,Ferrari,164.5,0,4,0
+2021,Sergio Pérez,Red Bull,190.0,1,5,0
+2021,Sebastian Vettel,Aston Martin,43.0,0,1,0
+2021,Lance Stroll,Aston Martin,34.0,0,0,0
+2021,Yuki Tsunoda,AlphaTauri,32.0,0,0,0
+2021,Esteban Ocon,Alpine F1 Team,74.0,1,1,0
+2021,Fernando Alonso,Alpine F1 Team,81.0,0,1,0
+2022,Esteban Ocon,Alpine F1 Team,92.0,0,0,0
+2022,Fernando Alonso,Alpine F1 Team,81.0,0,0,0
+2022,Valtteri Bottas,Alfa Romeo,49.0,0,0,0
+2022,Kevin Magnussen,Haas F1 Team,25.0,0,0,0
+2022,Sebastian Vettel,Aston Martin,37.0,0,0,0
+2022,Daniel Ricciardo,McLaren,37.0,0,0,0
+2022,Nicholas Latifi,Williams,2.0,0,0,0
+2022,Guanyu Zhou,Alfa Romeo,6.0,0,0,0
+2022,Yuki Tsunoda,AlphaTauri,12.0,0,0,0
+2022,Mick Schumacher,Haas F1 Team,12.0,0,0,0
+2022,Lance Stroll,Aston Martin,18.0,0,0,0
+2022,Nico Hülkenberg,Aston Martin,0.0,0,0,0
+2022,Sergio Pérez,Red Bull,305.0,2,11,0
+2022,Max Verstappen,Red Bull,454.0,15,17,1
+2022,Carlos Sainz,Ferrari,246.0,1,9,0
+2022,Charles Leclerc,Ferrari,308.0,3,11,0
+2022,George Russell,Mercedes,275.0,1,8,0
+2022,Lando Norris,McLaren,122.0,0,1,0
+2022,Pierre Gasly,AlphaTauri,23.0,0,0,0
+2022,Lewis Hamilton,Mercedes,240.0,0,9,0
+2022,Nyck de Vries,Williams,2.0,0,0,0
+2022,Alexander Albon,Williams,4.0,0,0,0
+2023,Valtteri Bottas,Alfa Romeo,10.0,0,0,0
+2023,Nico Hülkenberg,Haas F1 Team,9.0,0,0,0
+2023,Daniel Ricciardo,AlphaTauri,6.0,0,0,0
+2023,Guanyu Zhou,Alfa Romeo,6.0,0,0,0
+2023,Kevin Magnussen,Haas F1 Team,3.0,0,0,0
+2023,Liam Lawson,AlphaTauri,2.0,0,0,0
+2023,Logan Sargeant,Williams,1.0,0,0,0
+2023,Yuki Tsunoda,AlphaTauri,17.0,0,0,0
+2023,Nyck de Vries,AlphaTauri,0.0,0,0,0
+2023,Carlos Sainz,Ferrari,200.0,1,1,0
+2023,Oscar Piastri,McLaren,97.0,0,1,0
+2023,George Russell,Mercedes,175.0,0,1,0
+2023,Lance Stroll,Aston Martin,74.0,0,0,0
+2023,Pierre Gasly,Alpine F1 Team,62.0,0,0,0
+2023,Esteban Ocon,Alpine F1 Team,58.0,0,1,0
+2023,Alexander Albon,Williams,27.0,0,0,0
+2023,Lando Norris,McLaren,205.0,0,2,0
+2023,Fernando Alonso,Aston Martin,206.0,0,3,0
+2023,Charles Leclerc,Ferrari,206.0,0,3,0
+2023,Max Verstappen,Red Bull,575.0,19,9,1
+2023,Lewis Hamilton,Mercedes,234.0,0,2,0
+2023,Sergio Pérez,Red Bull,285.0,2,4,0
+2024,Nico Hülkenberg,Haas F1 Team,41.0,0,0,0
+2024,Pierre Gasly,Alpine F1 Team,42.0,0,1,0
+2024,Fernando Alonso,Aston Martin,70.0,0,0,0
+2024,Jack Doohan,Alpine F1 Team,0.0,0,0,0
+2024,Valtteri Bottas,Sauber,0.0,0,0,0
+2024,Logan Sargeant,Williams,0.0,0,0,0
+2024,Guanyu Zhou,Sauber,4.0,0,0,0
+2024,Franco Colapinto,Williams,5.0,0,0,0
+2024,Oliver Bearman,Ferrari,7.0,0,0,0
+2024,Liam Lawson,RB F1 Team,4.0,0,0,0
+2024,Lando Norris,McLaren,374.0,4,13,0
+2024,Charles Leclerc,Ferrari,356.0,3,13,0
+2024,Oscar Piastri,McLaren,292.0,2,8,0
+2024,Carlos Sainz,Ferrari,290.0,2,9,0
+2024,George Russell,Mercedes,245.0,2,4,0
+2024,Lewis Hamilton,Mercedes,223.0,2,5,0
+2024,Sergio Pérez,Red Bull,152.0,0,4,0
+2024,Daniel Ricciardo,RB F1 Team,12.0,0,0,0
+2024,Alexander Albon,Williams,12.0,0,0,0
+2024,Kevin Magnussen,Haas F1 Team,16.0,0,0,0
+2024,Esteban Ocon,Alpine F1 Team,23.0,0,1,0
+2024,Lance Stroll,Aston Martin,24.0,0,0,0
+2024,Yuki Tsunoda,RB F1 Team,30.0,0,0,0
+2024,Max Verstappen,Red Bull,437.0,9,14,1
