@@ -22,7 +22,7 @@ VIDEO_PATH = os.path.join(BASE_DIR, "background1.mp4")
 AUDIO_PATH = os.path.join(BASE_DIR, "theme.mp3")
 
 # ===============================
-# 3. 💎 CRYSTAL GLASS CSS 💎
+# 3. 💎 CRYSTAL GLASS CSS (FULLSCREEN FIX) 💎
 # ===============================
 def apply_glass_theme():
     st.markdown("""
@@ -35,30 +35,42 @@ def apply_glass_theme():
         font-family: 'Montserrat', sans-serif;
     }
 
-    /* REMOVE DEFAULT STREAMLIT PADDING & BACKGROUND */
+    /* RESET STREAMLIT DEFAULTS */
     .stApp {
         background: transparent !important;
     }
     header {
         background: transparent !important;
     }
+    
+    /* 1. FORCE FULLSCREEN VIDEO (The Fix) */
+    #myVideo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+    }
 
-    /* 1. SIDEBAR - TRUE GLASS EFFECT */
+    /* 2. SIDEBAR - TRUE GLASS EFFECT */
     section[data-testid="stSidebar"] {
-        background-color: rgba(0, 0, 0, 0.3) !important; /* Darker transparent */
-        backdrop-filter: blur(20px) !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(15px) !important;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    /* Sidebar Text */
     section[data-testid="stSidebar"] * {
         color: #FFFFFF !important;
         text-shadow: 0px 2px 4px rgba(0,0,0,0.8) !important;
     }
 
-    /* 2. MAIN CONTAINER - FROSTED CARD */
+    /* 3. MAIN CONTAINER - FROSTED CARD */
     .block-container {
-        background-color: rgba(0, 0, 0, 0.65); /* Dark Glass */
+        background-color: rgba(0, 0, 0, 0.7); /* Darker for better read */
         backdrop-filter: blur(10px);
         border-radius: 20px;
         padding: 3rem !important;
@@ -67,29 +79,27 @@ def apply_glass_theme():
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     }
 
-    /* 3. HEADINGS & TEXT */
+    /* 4. HEADINGS & TEXT */
     h1 {
-        color: #FF1E1E !important; /* F1 Red */
+        color: #FF1E1E !important;
         font-weight: 900 !important;
         text-transform: uppercase;
         letter-spacing: 2px;
         text-shadow: 3px 3px 0px #000000;
         text-align: center;
     }
-    
     h2, h3 {
         color: #FFFFFF !important;
         font-weight: 700 !important;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
     }
-    
     p, label, .stMarkdown {
         color: #E0E0E0 !important;
         font-size: 1.1rem !important;
         font-weight: 500 !important;
     }
 
-    /* 4. INPUT FIELDS */
+    /* 5. INPUT FIELDS */
     div[data-baseweb="input"] > div, div[data-baseweb="select"] > div {
         background-color: rgba(255, 255, 255, 0.15) !important;
         color: white !important;
@@ -99,7 +109,7 @@ def apply_glass_theme():
     }
     input { color: white !important; }
 
-    /* 5. BUTTONS - GLOWING ACTION */
+    /* 6. BUTTONS */
     div.stButton > button {
         width: 100%;
         background: linear-gradient(90deg, #FF1E1E 0%, #B30000 100%);
@@ -118,7 +128,7 @@ def apply_glass_theme():
         box-shadow: 0 6px 20px rgba(255, 30, 30, 0.6);
     }
     
-    /* 6. DATAFRAME */
+    /* 7. DATAFRAME */
     div[data-testid="stDataFrame"] {
         background: rgba(255,255,255,0.05);
         border-radius: 10px;
@@ -130,7 +140,7 @@ def apply_glass_theme():
 apply_glass_theme()
 
 # ===============================
-# 4. BACKGROUND MEDIA (FULLSCREEN FIX 🎥)
+# 4. BACKGROUND MEDIA (Absolute Center Fix)
 # ===============================
 def add_bg_media():
     video_b64 = ""
@@ -154,17 +164,6 @@ def add_bg_media():
     # CSS to Force Fullscreen Video
     if video_b64:
         st.markdown(f"""
-        <style>
-        #myVideo {{
-            position: center;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-        }}
-        </style>
         <video autoplay muted loop id="myVideo">
             <source src="data:video/mp4;base64,{video_b64}" type="video/mp4">
         </video>
@@ -193,7 +192,6 @@ except Exception as e:
 # 6. APP CONTENT
 # ===============================
 
-# --- SIDEBAR MENU ---
 st.sidebar.title("🏁 MENU")
 page = st.sidebar.radio("Go to", ["Home", "Predict from File", "Custom Prediction", "Tech Stack"])
 st.sidebar.markdown("---")
