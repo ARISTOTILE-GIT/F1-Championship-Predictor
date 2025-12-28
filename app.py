@@ -45,17 +45,16 @@ def apply_glass_theme():
     
     /* 1. FORCE FULLSCREEN VIDEO (The Fix) */
     #myVideo {
-        position: fixed;
-        top: 0;  /* <--- CHANGED: Was 50%. Increase to move down (Try 60%, 70%) */
-        left: 50%;
-        min-width: 100%;
-        min-height: 120%; /* <--- CHANGED: Increased size to prevent white gap at top */
-        width: auto;
-        height: auto;
-        z-index: -100;
-        transform: translateX(-50%) translateY(-50%);
-        object-fit: cover;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* shows full video */
+    background: black;
+    z-index: -100;
+}
+
 
     /* 2. SIDEBAR - TRUE GLASS EFFECT */
     section[data-testid="stSidebar"] {
