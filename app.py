@@ -46,7 +46,7 @@ def apply_glass_theme():
     /* 1. FORCE FULLSCREEN VIDEO (The Fix) */
     #myVideo {
         position: fixed;
-        top: 65%;  /* <--- CHANGED: Was 50%. Increase to move down (Try 60%, 70%) */
+        top: 75%;  /* <--- CHANGED: Was 50%. Increase to move down (Try 60%, 70%) */
         left: 50%;
         min-width: 100%;
         min-height: 120%; /* <--- CHANGED: Increased size to prevent white gap at top */
