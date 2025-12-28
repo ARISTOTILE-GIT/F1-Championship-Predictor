@@ -45,8 +45,8 @@ def apply_glass_theme():
 
     /* 1. SIDEBAR - TRUE GLASS EFFECT */
     section[data-testid="stSidebar"] {
-        background-color: rgba(0, 0, 0, 0.4) !important; /* Darker transparent */
-        backdrop-filter: blur(15px) !important;
+        background-color: rgba(0, 0, 0, 0.3) !important; /* Darker transparent */
+        backdrop-filter: blur(20px) !important;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
@@ -156,8 +156,8 @@ def add_bg_media():
         st.markdown(f"""
         <style>
         #myVideo {{
-            position: fixed;
-            top: 0;
+            
+            top: 50px;
             left: 0;
             width: 100vw;
             height: 100vh;
