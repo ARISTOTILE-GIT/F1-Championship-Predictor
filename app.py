@@ -35,28 +35,36 @@ def apply_glass_theme():
         font-family: 'Montserrat', sans-serif;
     }
 
+    /* REMOVE DEFAULT STREAMLIT PADDING & BACKGROUND */
+    .stApp {
+        background: transparent !important;
+    }
+    header {
+        background: transparent !important;
+    }
+
     /* 1. SIDEBAR - TRUE GLASS EFFECT */
     section[data-testid="stSidebar"] {
-        background-color: rgba(255, 255, 255, 0.1) !important; /* Very light transparent */
-        backdrop-filter: blur(20px) !important; /* Heavy blur */
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(0, 0, 0, 0.4) !important; /* Darker transparent */
+        backdrop-filter: blur(15px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Sidebar Text - High Contrast */
+    /* Sidebar Text */
     section[data-testid="stSidebar"] * {
-        color: #FFFFFF !important; /* White text on sidebar */
-        text-shadow: 0px 2px 4px rgba(0,0,0,0.8) !important; /* Shadow for readability */
+        color: #FFFFFF !important;
+        text-shadow: 0px 2px 4px rgba(0,0,0,0.8) !important;
     }
 
     /* 2. MAIN CONTAINER - FROSTED CARD */
     .block-container {
-        background-color: rgba(0, 0, 0, 0.6); /* Darker glass for main content */
-        backdrop-filter: blur(15px);
+        background-color: rgba(0, 0, 0, 0.65); /* Dark Glass */
+        backdrop-filter: blur(10px);
         border-radius: 20px;
         padding: 3rem !important;
         margin-top: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     }
 
     /* 3. HEADINGS & TEXT */
@@ -65,23 +73,23 @@ def apply_glass_theme():
         font-weight: 900 !important;
         text-transform: uppercase;
         letter-spacing: 2px;
-        text-shadow: 2px 2px 0px #000000;
+        text-shadow: 3px 3px 0px #000000;
         text-align: center;
     }
     
     h2, h3 {
         color: #FFFFFF !important;
         font-weight: 700 !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
     }
     
     p, label, .stMarkdown {
-        color: #E0E0E0 !important; /* Light Grey for body text */
+        color: #E0E0E0 !important;
         font-size: 1.1rem !important;
         font-weight: 500 !important;
     }
 
-    /* 4. INPUT FIELDS - MODERN LOOK */
+    /* 4. INPUT FIELDS */
     div[data-baseweb="input"] > div, div[data-baseweb="select"] > div {
         background-color: rgba(255, 255, 255, 0.15) !important;
         color: white !important;
@@ -89,11 +97,7 @@ def apply_glass_theme():
         backdrop-filter: blur(5px);
         border-radius: 8px !important;
     }
-    
-    /* Input Text Color */
-    input {
-        color: white !important;
-    }
+    input { color: white !important; }
 
     /* 5. BUTTONS - GLOWING ACTION */
     div.stButton > button {
@@ -120,32 +124,26 @@ def apply_glass_theme():
         border-radius: 10px;
         padding: 5px;
     }
-    
-    /* Remove white background from Streamlit default */
-    .stApp {
-        background: transparent;
-    }
-    header {
-        background: transparent !important;
-    }
     </style>
     """, unsafe_allow_html=True)
 
 apply_glass_theme()
 
 # ===============================
-# 4. BACKGROUND MEDIA
+# 4. BACKGROUND MEDIA (FULLSCREEN FIX 🎥)
 # ===============================
 def add_bg_media():
     video_b64 = ""
     audio_html = ""
     
+    # Load Video
     if os.path.exists(VIDEO_PATH):
         try:
             with open(VIDEO_PATH, "rb") as v_file:
                 video_b64 = base64.b64encode(v_file.read()).decode()
         except: pass
 
+    # Load Audio
     if os.path.exists(AUDIO_PATH):
         try:
             with open(AUDIO_PATH, "rb") as a_file:
@@ -153,20 +151,23 @@ def add_bg_media():
                 audio_html = f'<audio autoplay loop><source src="data:audio/mp3;base64,{audio_b64}" type="audio/mp3"></audio>'
         except: pass
 
+    # CSS to Force Fullscreen Video
     if video_b64:
         st.markdown(f"""
         <style>
         #myVideo {{
             position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%; 
-            min-height: 100%;
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             object-fit: cover;
+            z-index: -1;
         }}
         </style>
-        <video autoplay muted loop id="myVideo"><source src="data:video/mp4;base64,{video_b64}" type="video/mp4"></video>
+        <video autoplay muted loop id="myVideo">
+            <source src="data:video/mp4;base64,{video_b64}" type="video/mp4">
+        </video>
         {audio_html}
         """, unsafe_allow_html=True)
 
