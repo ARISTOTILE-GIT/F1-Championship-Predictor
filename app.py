@@ -157,7 +157,7 @@ def add_bg_media():
         <style>
         #myVideo {{
             
-            top: 50px;
+            top: 200px;
             left: 0;
             width: 100vw;
             height: 100vh;
