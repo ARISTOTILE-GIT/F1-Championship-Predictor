@@ -48,24 +48,25 @@ This application uses **Machine Learning (XGBoost)** to analyze historical Formu
 
 ---
 
-## 💻 Installation & Usage
+ 💻 Installation & Usage
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/your-username/f1-predictor.git](https://github.com/your-username/f1-predictor.git)
-cd f1-predictor
-----
+1. **Clone the Repository**
+   ```bash
+   git clone [https://github.com/your-username/f1-predictor.git](https://github.com/your-username/f1-predictor.git)
 
-### 2. Install Dependencies
-```bash
-pip install -r requirements.txt
+   cd f1-predictor
 
-### 3. Run the App
-```bash
-streamlit run app.py
 
-### 4. Upload Data
-```bash
-Use the provided f1_2025_test.csv (or any CSV with columns: driver, team, points, wins, podiums) to test the prediction.
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+3. **Run the App**
+   ```bash
+   streamlit run app.py
+
+4. **Upload Data**
+   ```bash
+   Use the provided f1_2025_test.csv (or any CSV with columns: driver, team, points, wins, podiums) to test the prediction.
 
 
