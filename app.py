@@ -182,8 +182,7 @@ st.markdown("""
 # ===============================
 st.sidebar.title("🏎️ MENU")
 
-page = st.sidebar.radio(
-     
+page = st.sidebar.radio("", 
     ["🏠 Home", "🔮 Predict Season", "🆚 Driver Comparison", "🎮 Simulator", "🛠️ Tech Stack"]
 )
 
