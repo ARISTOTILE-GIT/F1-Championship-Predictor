@@ -28,38 +28,32 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (FIXED ICON & MENU FONT) 🎨
+# 3. F1 STYLING (ICON FIX APPLIED) 🎨
 # ===============================
 st.markdown("""
 <style>
     /* 1. IMPORT FONT */
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. UNIVERSAL FONT (TEXT ONLY) */
-    html, body, p, h1, h2, h3, h4, h5, h6, span, div, label, input, textarea, li {
+    /* 2. SAFE FONT APPLICATION (THE FIX) */
+    /* Removed 'span' and 'div' from this list to protect Icons */
+    html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, li, .stMarkdown, .stText, .stButton {
         font-family: 'Titillium Web', sans-serif !important;
         color: #000000 !important;
     }
 
-    /* 3. FIX SIDEBAR ICON (CRITICAL FIX) */
-    /* This forces the sidebar toggle button to use the Icon Font, not the F1 font */
-    button[kind="header"] {
-        font-family: "Material Symbols Rounded", sans-serif !important;
-        color: #000000 !important;
-    }
-    div[data-testid="stDecoration"] {
-        display: none;
-    }
-    
-    /* 4. BACKGROUNDS */
+    /* 3. HEADER & BACKGROUND */
     .stApp {
         background-color: #ffffff !important;
     }
     header[data-testid="stHeader"] {
         background-color: transparent !important;
     }
+    div[data-testid="stDecoration"] {
+        display: none;
+    }
 
-    /* 5. HEADINGS */
+    /* 4. HEADINGS */
     h1 {
         color: #E10600 !important;
         font-weight: 900 !important;
@@ -76,7 +70,7 @@ st.markdown("""
     }
     h3 { color: #333333 !important; font-weight: 700 !important; }
     
-    /* 6. DROPDOWN POPUP FIX */
+    /* 5. DROPDOWN POPUP FIX */
     div[data-baseweb="popover"],
     div[data-baseweb="menu"],
     ul[data-baseweb="menu"] {
@@ -95,7 +89,7 @@ st.markdown("""
         color: #E10600 !important;
     }
 
-    /* 7. INPUT BOXES */
+    /* 6. INPUT BOXES */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div,
     div[data-baseweb="base-input"] {
@@ -107,7 +101,7 @@ st.markdown("""
         color: #000000 !important; 
     }
 
-    /* 8. FILE UPLOADER */
+    /* 7. FILE UPLOADER */
     section[data-testid="stFileUploaderDropzone"] {
         background-color: #f8f9fa !important;
         border: 2px dashed #E10600 !important;
@@ -117,14 +111,14 @@ st.markdown("""
         background-color: #E10600 !important;
         color: #ffffff !important;
         border: none !important;
-        font-family: 'Titillium Web', sans-serif !important; /* Button text needs font */
+        font-family: 'Titillium Web', sans-serif !important;
     }
     div[data-testid="stFileUploaderFile"] {
         background-color: #ffffff !important;
         border: 1px solid #ddd;
     }
 
-    /* 9. ACTION BUTTONS */
+    /* 8. BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
@@ -143,27 +137,27 @@ st.markdown("""
         transform: translateY(-2px);
     }
 
-    /* 10. SIDEBAR STYLING (FIXED MENU FONT) */
+    /* 9. SIDEBAR */
     section[data-testid="stSidebar"] { 
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
     }
-    /* Target the Menu Items (Radio Buttons) */
+    /* Force Sidebar Menu Items to be F1 Font */
     section[data-testid="stSidebar"] .stRadio label {
         color: #111111 !important;
         font-family: 'Titillium Web', sans-serif !important;
-        text-transform: uppercase !important; /* F1 Style */
+        text-transform: uppercase !important;
         font-weight: 700 !important;
-        font-size: 16px !important;
         letter-spacing: 0.5px;
     }
-    /* Target Title and Caption */
-    section[data-testid="stSidebar"] h1, 
+    section[data-testid="stSidebar"] h1 {
+        color: #E10600 !important;
+    }
     section[data-testid="stSidebar"] p {
         color: #000000 !important;
     }
 
-    /* 11. METRIC CARDS */
+    /* 10. METRIC CARDS */
     div[data-testid="stMetric"] {
         background-color: #ffffff !important;
         border: 1px solid #e0e0e0;
