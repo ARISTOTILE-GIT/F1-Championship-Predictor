@@ -44,7 +44,7 @@ st.markdown("""
     /* 3. MENU BAR & SIDEBAR ICON FIX (GUARANTEED BLACK) */
     /* Make header transparent */
     header[data-testid="stHeader"] {
-        background-color: transparent !important;
+        background-color: black !important;
     }
     
     /* Target the button wrapper */
