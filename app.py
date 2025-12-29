@@ -18,7 +18,6 @@ st.set_page_config(
 # ===============================
 @st.cache_resource
 def load_model():
-    # Robust path finding (Works in Root or Codes folder)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     model_path = os.path.join(base_dir, "f1_champion_predictor.pkl")
     
@@ -29,7 +28,7 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (CSS MAGIC) 🎨
+# 3. F1 STYLING (FIXED VISIBILITY) 🎨
 # ===============================
 st.markdown("""
 <style>
@@ -37,8 +36,10 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    /* 2. GLOBAL SETTINGS */
-    .main { background-color: #f8f9fa; }
+    /* 2. FORCE LIGHT THEME (Fixes Dark Text Issue) */
+    .stApp {
+        background-color: #ffffff !important;
+    }
     
     /* 3. F1 STYLE HEADINGS */
     h1, h2, h3 {
@@ -49,52 +50,50 @@ st.markdown("""
     }
     
     h1 {
-        color: #E10600;
-        font-weight: 900;
+        color: #E10600 !important; /* F1 Red */
+        font-weight: 900 !important;
         font-size: 3rem !important;
     }
     
     h2 {
-        color: #15151e;
-        font-weight: 900;
-        border-bottom: 3px solid #E10600;
-        display: inline-block;
+        color: #15151e !important; /* Dark Carbon */
+        font-weight: 900 !important;
+        /* Removed border-bottom (The Red Line) */
         padding-bottom: 5px;
     }
     
-    /* 4. BODY TEXT */
-    p, label, li, .stMarkdown, .stText {
+    h3 {
+        color: #333333 !important;
+    }
+    
+    /* 4. BODY TEXT (High Contrast) */
+    p, label, li, .stMarkdown, .stText, div {
         font-family: 'Roboto', sans-serif;
-        color: #333333;
+        color: #000000 !important; /* Pure Black for maximum readability */
         font-size: 1.1rem;
         line-height: 1.6;
     }
     
     /* 5. METRIC CARDS */
     div[data-testid="stMetric"] {
-        background-color: #ffffff;
-        border-left: 6px solid #E10600;
+        background-color: #f8f9fa !important; /* Light Grey Card */
+        border: 1px solid #ddd;
         padding: 15px;
         border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     div[data-testid="stMetricLabel"] {
-        font-family: 'Titillium Web', sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #666;
+        color: #666 !important;
     }
     div[data-testid="stMetricValue"] {
-        font-family: 'Titillium Web', sans-serif;
-        font-weight: 900;
+        color: #15151e !important;
         font-size: 2rem !important;
-        color: #15151e;
     }
     
     /* 6. BUTTONS */
     div.stButton > button {
-        background-color: #E10600;
-        color: white;
+        background-color: #E10600 !important;
+        color: white !important;
         font-family: 'Titillium Web', sans-serif;
         font-weight: 900;
         font-style: italic;
@@ -103,20 +102,24 @@ st.markdown("""
         border: none;
         padding: 0.6rem 2rem;
         font-size: 1.2rem;
-        box-shadow: 0 4px 0px #b30500;
         transition: all 0.2s ease;
     }
     div.stButton > button:hover {
-        background-color: #ff1a1a;
+        background-color: #ff1a1a !important;
         transform: translateY(-2px);
-        box-shadow: 0 6px 0px #b30500;
     }
     
     /* 7. SIDEBAR */
-    section[data-testid="stSidebar"] { background-color: #15151e; }
-    section[data-testid="stSidebar"] * {
-        color: #f0f0f0 !important;
-        font-family: 'Titillium Web', sans-serif;
+    section[data-testid="stSidebar"] { 
+        background-color: #15151e !important; /* Dark Sidebar */
+    }
+    section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] span {
+        color: #f0f0f0 !important; /* White text for sidebar only */
+    }
+    
+    /* 8. ALERTS/INFO BOXES - Fix Text Color */
+    .stAlert {
+        color: black !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -125,24 +128,26 @@ st.markdown("""
 # 4. SIDEBAR NAVIGATION
 # ===============================
 st.sidebar.title("🏎️ ANALYTICS HUB")
+
+# Removed "Model Insights" from the list
 page = st.sidebar.radio(
     "MENU", 
-    ["🏠 Home", "🔮 Predict Season", "🆚 Driver Comparison", "🧠 Model Insights", "🎮 Simulator", "🛠️ Tech Stack"]
+    ["🏠 Home", "🔮 Predict Season", "🆚 Driver Comparison", "🎮 Simulator", "🛠️ Tech Stack"]
 )
 
 st.sidebar.markdown("---")
 st.sidebar.info("Developed by **Totz** 🚀")
 
 # ===============================
-# PAGE: HOME (UPDATED AS REQUESTED)
+# PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    # 1. HERO TITLE
+    # Hero Title
     st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: #555;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    # 2. INTRO
+    # Intro
     st.markdown("""
     This application uses **Machine Learning** to analyze Formula 1 driver performance and predict championship outcomes.
     
@@ -150,7 +155,7 @@ if page == "🏠 Home":
     """)
     st.write("") 
 
-    # 3. CORE FEATURES
+    # Core Features
     st.markdown("## 🚀 CORE FEATURES")
     
     col1, col2, col3 = st.columns(3)
@@ -169,7 +174,7 @@ if page == "🏠 Home":
 
     st.write("")
 
-    # 4. HOW THE AI WORKS & WHY IT MATTERS
+    # AI Section
     c1, c2 = st.columns(2)
     
     with c1:
@@ -189,7 +194,7 @@ if page == "🏠 Home":
 
     st.divider()
 
-    # 5. CALL TO ACTION
+    # Call to Action
     st.markdown("### 👉 READY TO START?")
     st.success("""
     **Use the sidebar to explore:**
@@ -228,7 +233,7 @@ elif page == "🔮 Predict Season":
                     col_main, col_chart = st.columns([1, 1.5])
                     with col_main:
                         st.markdown("### 🏆 PREDICTED CHAMPION")
-                        st.markdown(f"<h1 style='color: #E10600; font-style: italic;'>{winner['driver']}</h1>", unsafe_allow_html=True)
+                        st.markdown(f"<h1 style='color: #E10600 !important; font-style: italic;'>{winner['driver']}</h1>", unsafe_allow_html=True)
                         st.markdown(f"## {winner['team']}")
                         st.metric("CHAMPIONSHIP PROBABILITY", f"{winner['Win Probability %']}%", delta="Highest Odds")
                     with col_chart:
@@ -263,13 +268,13 @@ elif page == "🆚 Driver Comparison":
             st.divider()
             col_a, col_mid, col_b = st.columns([1, 0.2, 1])
             with col_a:
-                st.markdown(f"<h2 style='text-align: center; color: #E10600;'>{d1['driver']}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #E10600 !important;'>{d1['driver']}</h2>", unsafe_allow_html=True)
                 st.markdown(f"<h3 style='text-align: center;'>{d1['team']}</h3>", unsafe_allow_html=True)
                 st.metric("WIN PROBABILITY", f"{d1['Win Probability %']}%")
             with col_mid:
-                st.markdown("<h1 style='text-align: center; font-size: 50px; color: #ccc;'>VS</h1>", unsafe_allow_html=True)
+                st.markdown("<h1 style='text-align: center; font-size: 50px; color: #ccc !important;'>VS</h1>", unsafe_allow_html=True)
             with col_b:
-                st.markdown(f"<h2 style='text-align: center; color: #15151e;'>{d2['driver']}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #15151e !important;'>{d2['driver']}</h2>", unsafe_allow_html=True)
                 st.markdown(f"<h3 style='text-align: center;'>{d2['team']}</h3>", unsafe_allow_html=True)
                 st.metric("WIN PROBABILITY", f"{d2['Win Probability %']}%")
             st.markdown("### 📊 STAT BREAKDOWN")
@@ -286,31 +291,6 @@ elif page == "🆚 Driver Comparison":
                 st.success(f"**{d2['driver']}** leads the prediction model with stronger performance.")
             else:
                 st.info("It's a dead heat! Both drivers have identical probabilities.")
-
-# ===============================
-# PAGE: MODEL INSIGHTS
-# ===============================
-elif page == "🧠 Model Insights":
-    st.title("INSIDE THE AI MIND")
-    st.write("Understand which statistics the XGBoost model values most.")
-    if model:
-        try:
-            importance = model.feature_importances_
-            features = ["POINTS", "WINS", "PODIUMS"]
-            imp_df = pd.DataFrame({'Feature': features, 'Importance': importance}).sort_values(by='Importance', ascending=False)
-            col1, col2 = st.columns([2, 1])
-            with col1:
-                st.markdown("### FEATURE IMPORTANCE CHART")
-                st.bar_chart(imp_df.set_index("Feature"), color="#E10600")
-            with col2:
-                st.markdown("### KEY TAKEAWAYS")
-                top_feature = imp_df.iloc[0]['Feature']
-                st.info(f"🔹 **{top_feature}** is the #1 predictor.")
-                st.write("This means the AI prioritizes this stat above all else.")
-        except:
-            st.error("Feature importance unavailable.")
-    else:
-        st.warning("Model not loaded.")
 
 # ===============================
 # PAGE: SIMULATOR
