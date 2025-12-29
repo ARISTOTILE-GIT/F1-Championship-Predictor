@@ -49,14 +49,13 @@ st.markdown("""
     
     /* Target the button wrapper */
     header[data-testid="stHeader"] button {
-        color: #000000 !important;
-    }
+    color: black !important;
+}
 
-    /* Target the SVG icon directly to force it BLACK */
-    header[data-testid="stHeader"] button svg {
-        fill: #000000 !important;
-        color: #000000 !important;
-    }
+header[data-testid="stHeader"] button svg {
+    fill: black !important;
+    stroke: black !important;
+}
     
     /* Force Sidebar Close Button (Arrow/X) to be BLACK */
     section[data-testid="stSidebar"] button {
