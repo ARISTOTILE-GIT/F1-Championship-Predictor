@@ -180,10 +180,10 @@ st.markdown("""
 # ===============================
 # 4. SIDEBAR NAVIGATION
 # ===============================
-st.sidebar.title("🏎️ ANALYTICS HUB")
+st.sidebar.title("🏎️ MENU")
 
 page = st.sidebar.radio(
-    "MENU", 
+     
     ["🏠 Home", "🔮 Predict Season", "🆚 Driver Comparison", "🎮 Simulator", "🛠️ Tech Stack"]
 )
 
@@ -194,7 +194,7 @@ st.sidebar.caption("Developed by **Totz** 🚀")
 # PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR </h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
