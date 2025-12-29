@@ -28,27 +28,23 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (BUGS FIXED) 🎨
+# 3. F1 STYLING (FIXED ICON & MENU FONT) 🎨
 # ===============================
 st.markdown("""
 <style>
     /* 1. IMPORT FONT */
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. SAFE FONT APPLICATION (Fixes the "keyboard_arrow" bug) */
-    /* Only apply font to Text elements, NOT Icons */
-    html, body, p, h1, h2, h3, h4, h5, h6, span, div, label, button, input, textarea {
+    /* 2. UNIVERSAL FONT (TEXT ONLY) */
+    html, body, p, h1, h2, h3, h4, h5, h6, span, div, label, input, textarea, li {
         font-family: 'Titillium Web', sans-serif !important;
         color: #000000 !important;
     }
 
-    /* 3. HEADER FIXES */
-    /* Make header transparent so buttons show, but background doesn't block */
-    header[data-testid="stHeader"] {
-        background-color: transparent !important;
-    }
-    /* Force the Sidebar Toggle & Options Menu to be Black */
+    /* 3. FIX SIDEBAR ICON (CRITICAL FIX) */
+    /* This forces the sidebar toggle button to use the Icon Font, not the F1 font */
     button[kind="header"] {
+        font-family: "Material Symbols Rounded", sans-serif !important;
         color: #000000 !important;
     }
     div[data-testid="stDecoration"] {
@@ -58,6 +54,9 @@ st.markdown("""
     /* 4. BACKGROUNDS */
     .stApp {
         background-color: #ffffff !important;
+    }
+    header[data-testid="stHeader"] {
+        background-color: transparent !important;
     }
 
     /* 5. HEADINGS */
@@ -77,30 +76,26 @@ st.markdown("""
     }
     h3 { color: #333333 !important; font-weight: 700 !important; }
     
-    /* 6. DROPDOWN MENU FIX (Force White Background) */
+    /* 6. DROPDOWN POPUP FIX */
     div[data-baseweb="popover"],
     div[data-baseweb="menu"],
     ul[data-baseweb="menu"] {
         background-color: #ffffff !important;
     }
-    
-    /* The List Items in the Dropdown */
     li[data-baseweb="menu-item"] {
         background-color: #ffffff !important;
         color: #000000 !important;
     }
-    /* Hover Effect */
     li[data-baseweb="menu-item"]:hover {
         background-color: #f0f0f0 !important;
         color: #E10600 !important;
     }
-    /* Selected Item */
     li[aria-selected="true"] {
         background-color: #f8f9fa !important;
         color: #E10600 !important;
     }
 
-    /* 7. INPUT BOXES (Light Grey) */
+    /* 7. INPUT BOXES */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div,
     div[data-baseweb="base-input"] {
@@ -122,13 +117,14 @@ st.markdown("""
         background-color: #E10600 !important;
         color: #ffffff !important;
         border: none !important;
+        font-family: 'Titillium Web', sans-serif !important; /* Button text needs font */
     }
     div[data-testid="stFileUploaderFile"] {
         background-color: #ffffff !important;
         border: 1px solid #ddd;
     }
 
-    /* 9. BUTTONS */
+    /* 9. ACTION BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
@@ -140,19 +136,31 @@ st.markdown("""
         padding: 0.6rem 2rem;
         font-size: 1.2rem !important;
         box-shadow: 0 4px 0px #b30500;
+        font-family: 'Titillium Web', sans-serif !important;
     }
     div.stButton > button:hover {
         background-color: #ff1a1a !important;
         transform: translateY(-2px);
     }
 
-    /* 10. SIDEBAR */
+    /* 10. SIDEBAR STYLING (FIXED MENU FONT) */
     section[data-testid="stSidebar"] { 
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
     }
-    section[data-testid="stSidebar"] * {
+    /* Target the Menu Items (Radio Buttons) */
+    section[data-testid="stSidebar"] .stRadio label {
         color: #111111 !important;
+        font-family: 'Titillium Web', sans-serif !important;
+        text-transform: uppercase !important; /* F1 Style */
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        letter-spacing: 0.5px;
+    }
+    /* Target Title and Caption */
+    section[data-testid="stSidebar"] h1, 
+    section[data-testid="stSidebar"] p {
+        color: #000000 !important;
     }
 
     /* 11. METRIC CARDS */
