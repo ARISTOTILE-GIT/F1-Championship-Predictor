@@ -28,7 +28,7 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (ICON VISIBILITY FIXED) 🎨
+# 3. F1 STYLING (BLACK ICONS + LIGHT THEME) 🎨
 # ===============================
 st.markdown("""
 <style>
@@ -36,37 +36,45 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
     /* 2. UNIVERSAL FONT (TEXT ONLY) */
+    /* Exclude 'span' and 'i' to prevent breaking Icons */
     html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, li, .stMarkdown, .stText, .stButton {
         font-family: 'Titillium Web', sans-serif !important;
         color: #000000 !important;
     }
 
-    /* 3. SYMBOL/ICON COLOR FIX (THE NUCLEAR SOLUTION) */
-    /* Force ALL SVGs in the header and sidebar to be BLACK */
-    header[data-testid="stHeader"] svg,
-    section[data-testid="stSidebar"] svg,
-    button[kind="header"] svg {
-        fill: #000000 !important;
-        stroke: #000000 !important;
-        color: #000000 !important;
-    }
+    /* 3. ICON VISIBILITY FIX (THE STRONGEST METHOD) */
     
-    /* Force the button container to be transparent/black text */
-    button[kind="header"] {
-        color: #000000 !important;
-        background-color: transparent !important;
-        border: none !important;
-    }
-
-    /* 4. BACKGROUNDS & HEADER */
-    .stApp {
-        background-color: #ffffff !important;
-    }
+    /* Make Header Transparent */
     header[data-testid="stHeader"] {
         background-color: transparent !important;
     }
+
+    /* Force Sidebar Toggle (Hamburger) & Options Menu to Black */
+    /* We use 'filter: brightness(0)' which turns ANY color to BLACK */
+    header[data-testid="stHeader"] button, 
+    header[data-testid="stHeader"] svg {
+        color: #000000 !important;
+        fill: #000000 !important;
+        stroke: #000000 !important;
+        filter: brightness(0) !important; 
+    }
+
+    /* Force Sidebar Close Arrow (>) to Black */
+    section[data-testid="stSidebar"] button,
+    section[data-testid="stSidebar"] button svg {
+        color: #000000 !important;
+        fill: #000000 !important;
+        filter: brightness(0) !important;
+    }
+
+    /* Hide the top decoration line */
     div[data-testid="stDecoration"] {
         display: none;
+    }
+
+    /* 4. BACKGROUNDS */
+    .stApp {
+        background-color: #ffffff !important;
     }
 
     /* 5. HEADINGS */
@@ -86,7 +94,7 @@ st.markdown("""
     }
     h3 { color: #333333 !important; font-weight: 700 !important; }
     
-    /* 6. DROPDOWN POPUP */
+    /* 6. DROPDOWN & MENU FIX */
     div[data-baseweb="popover"],
     div[data-baseweb="menu"],
     ul[data-baseweb="menu"] {
@@ -200,23 +208,15 @@ st.sidebar.markdown("---")
 st.sidebar.caption("Developed by **Totz** 🚀")
 
 # ===============================
-# PAGE: HOME
+# PAGE: HOME (REORDERED)
 # ===============================
 if page == "🏠 Home":
+    # 1. HERO TITLE
     st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
-    st.markdown("""
-    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
-
-    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
-
-    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
-    """)
-    st.write("") 
-
+    # 2. CORE FEATURES (NOW FIRST)
     st.markdown("## 🚀 CORE FEATURES")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -229,7 +229,22 @@ if page == "🏠 Home":
         st.success("🎮 **Championship Simulator**")
         st.markdown("Create your own driver scenario by adjusting points, wins, and podiums.")
 
+    st.write("") 
     st.divider()
+
+    # 3. HOW THE AI WORKS (NOW SECOND)
+    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
+    st.markdown("""
+    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
+
+    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
+
+    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
+    """)
+    
+    st.divider()
+
+    # 4. CALL TO ACTION (LAST)
     st.markdown("### 👉 READY TO START?")
     st.success("""
     **Use the sidebar to explore:**
