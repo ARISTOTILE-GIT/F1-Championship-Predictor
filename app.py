@@ -28,27 +28,31 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (PURE LIGHT & UNIVERSAL FONT) 🎨
+# 3. F1 STYLING (PURE LIGHT THEME FIXED) 🎨
 # ===============================
 st.markdown("""
 <style>
     /* 1. IMPORT FONT */
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. UNIVERSAL FONT APPLICATION */
+    /* 2. UNIVERSAL FONT & COLOR RESET */
     html, body, [class*="css"], font, span, div, p, h1, h2, h3, h4, h5, h6 {
         font-family: 'Titillium Web', sans-serif !important;
+        color: #000000 !important; /* Force Black Text Everywhere */
     }
 
-    /* 3. BACKGROUNDS & HEADER */
-    .stApp {
-        background-color: #ffffff !important;
-    }
-    header {
-        background-color: transparent !important;
+    /* 3. HIDE DEFAULT HEADER */
+    header[data-testid="stHeader"] {
+        display: none !important;
     }
     
-    /* 4. HEADINGS (F1 Style) */
+    /* 4. BACKGROUNDS */
+    .stApp {
+        background-color: #ffffff !important;
+        margin-top: -30px;
+    }
+
+    /* 5. HEADINGS */
     h1 {
         color: #E10600 !important; /* F1 Red */
         font-weight: 900 !important;
@@ -58,7 +62,7 @@ st.markdown("""
         letter-spacing: 1px;
     }
     h2 {
-        color: #1f1f1f !important; /* Dark Black */
+        color: #111111 !important;
         font-weight: 800 !important;
         font-style: italic;
         text-transform: uppercase;
@@ -68,48 +72,61 @@ st.markdown("""
         font-weight: 700 !important;
     }
     
-    /* 5. BODY TEXT (Readable F1 Font) */
-    p, label, li, .stMarkdown, .stText {
-        color: #111111 !important;
-        font-weight: 600 !important; /* Slightly thicker for F1 feel */
-        font-size: 1.15rem !important;
-    }
-
-    /* 6. INPUT WIDGETS (FORCE LIGHT THEME) */
-    /* File Uploader */
-    div[data-testid="stFileUploader"] {
-        background-color: #f8f9fa !important;
-        border: 2px dashed #E10600 !important;
-        padding: 20px;
-        border-radius: 10px;
-    }
-    div[data-testid="stFileUploader"] section {
-        background-color: #f8f9fa !important;
-    }
-    div[data-testid="stFileUploader"] span {
+    /* 6. INPUTS & DROPDOWNS (THE FIX) */
+    /* The box itself */
+    div[data-baseweb="select"] > div, 
+    div[data-baseweb="input"] > div,
+    div[data-baseweb="base-input"] {
+        background-color: #f8f9fa !important; /* Very Light Grey */
+        border: 1px solid #ced4da !important;
         color: #000000 !important;
     }
     
-    /* Dropdowns (Selectbox) & Number Inputs */
-    div[data-baseweb="select"] > div, 
-    div[data-baseweb="input"] > div {
-        background-color: #f0f2f6 !important; /* Light Grey Background */
-        color: #000000 !important; /* Black Text */
-        border: 1px solid #ccc !important;
-    }
-    div[data-baseweb="select"] span, 
-    div[data-baseweb="input"] input {
-        color: #000000 !important; /* Force Black Text inside inputs */
+    /* Text inside inputs */
+    input[type="text"], input[type="number"], div[data-baseweb="select"] span {
+        color: #000000 !important; 
         font-weight: 600 !important;
     }
     
-    /* Dropdown Menu Items */
-    ul[data-baseweb="menu"] li {
+    /* The Dropdown Menu List (When you click it) */
+    ul[data-baseweb="menu"] {
+        background-color: #ffffff !important;
+        border: 1px solid #ddd !important;
+    }
+    li[data-baseweb="menu-item"] {
         background-color: #ffffff !important;
         color: #000000 !important;
     }
-
-    /* 7. BUTTONS */
+    li[data-baseweb="menu-item"]:hover {
+        background-color: #f0f0f0 !important;
+    }
+    
+    /* 7. FILE UPLOADER (LIGHT THEME FIX) */
+    section[data-testid="stFileUploaderDropzone"] {
+        background-color: #f8f9fa !important;
+        border: 2px dashed #E10600 !important;
+        border-radius: 10px;
+    }
+    section[data-testid="stFileUploaderDropzone"] div {
+        color: #333333 !important;
+    }
+    section[data-testid="stFileUploaderDropzone"] span {
+        color: #333333 !important;
+        font-weight: bold;
+    }
+    /* The 'Browse files' button */
+    section[data-testid="stFileUploaderDropzone"] button {
+        background-color: #E10600 !important;
+        color: #ffffff !important; /* White Text on Button */
+        border: none !important;
+    }
+    /* The Uploaded File Name Box */
+    div[data-testid="stFileUploaderFile"] {
+        background-color: #ffffff !important;
+        border: 1px solid #ddd;
+    }
+    
+    /* 8. BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
@@ -127,16 +144,18 @@ st.markdown("""
         transform: translateY(-2px);
     }
 
-    /* 8. SIDEBAR */
+    /* 9. SIDEBAR */
     section[data-testid="stSidebar"] { 
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
     }
-    section[data-testid="stSidebar"] * {
-        color: #111111 !important;
+    /* Sidebar Links (Radio Buttons) */
+    div[data-testid="stSidebar"] label {
+        color: #000000 !important;
+        font-weight: 600;
     }
 
-    /* 9. METRIC CARDS */
+    /* 10. METRIC CARDS */
     div[data-testid="stMetric"] {
         background-color: #ffffff !important;
         border: 1px solid #e0e0e0;
@@ -166,14 +185,11 @@ st.sidebar.caption("Developed by **Totz** 🚀")
 # PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    # 1. HERO TITLE
     st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    # 2. INTRO (Combined & Updated Text)
     st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
-    
     st.markdown("""
     The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
 
@@ -181,29 +197,21 @@ if page == "🏠 Home":
 
     This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
     """)
-    
     st.write("") 
 
-    # 3. CORE FEATURES
     st.markdown("## 🚀 CORE FEATURES")
-    
     col1, col2, col3 = st.columns(3)
-    
     with col1:
         st.info("🔮 **Season Winner Prediction**")
-        st.markdown("Upload season-level driver statistics to predict the most likely Formula 1 World Champion with probability scores.")
-        
+        st.markdown("Upload season-level driver statistics to predict the most likely Formula 1 World Champion.")
     with col2:
         st.warning("🆚 **Driver Comparison**")
-        st.markdown("Compare two drivers based on their performance metrics and AI-generated championship probabilities.")
-        
+        st.markdown("Compare two drivers based on their performance metrics and AI-generated probabilities.")
     with col3:
         st.success("🎮 **Championship Simulator**")
-        st.markdown("Create your own driver scenario by adjusting points, wins, and podiums to simulate different championship outcomes.")
+        st.markdown("Create your own driver scenario by adjusting points, wins, and podiums.")
 
     st.divider()
-
-    # 4. CALL TO ACTION
     st.markdown("### 👉 READY TO START?")
     st.success("""
     **Use the sidebar to explore:**
@@ -219,7 +227,7 @@ elif page == "🔮 Predict Season":
     st.title("SEASON PREDICTION")
     st.write("Upload your 2025 dataset to analyze championship odds.")
     
-    # Upload Bar is now Light Grey/White via CSS
+    # Upload Bar is now Light Grey + Red Button via CSS
     uploaded_file = st.file_uploader("Upload CSV (Required: driver, team, points, wins, podiums)", type=["csv"])
     
     if uploaded_file:
@@ -294,13 +302,6 @@ elif page == "🆚 Driver Comparison":
                 d2['driver']: [d2['points'], d2['wins'], d2['podiums']]
             }).set_index('METRIC')
             st.table(comp_df)
-            st.markdown("### 🤖 AI VERDICT")
-            if d1['Win Probability'] > d2['Win Probability']:
-                st.success(f"**{d1['driver']}** has a statistically higher chance of winning.")
-            elif d2['Win Probability'] > d1['Win Probability']:
-                st.success(f"**{d2['driver']}** leads the prediction model with stronger performance.")
-            else:
-                st.info("It's a dead heat! Both drivers have identical probabilities.")
 
 # ===============================
 # PAGE: SIMULATOR
@@ -323,7 +324,6 @@ elif page == "🎮 Simulator":
         with col_text:
             if prob > 80: st.success("🏆 **DOMINANT CHAMPION!** These stats guarantee a title.")
             elif prob > 50: st.warning("🔥 **STRONG CONTENDER.** A very close fight.")
-            elif prob > 20: st.info("🏎️ **MID-FIELD.** Good season, but not a title winner.")
             else: st.error("❌ **NO CHANCE.** Needs better results.")
 
 # ===============================
@@ -336,16 +336,8 @@ elif page == "🛠️ Tech Stack":
     with col1:
         st.markdown("### 💻 FRONTEND")
         st.info("**STREAMLIT**")
-        st.caption("Interactive Web Interface & Dashboarding")
+    with col2:
         st.markdown("### 🧠 AI MODEL")
         st.error("**XGBOOST**")
-        st.caption("Gradient Boosting Machine Learning Algorithm")
-    with col2:
-        st.markdown("### 📊 DATA ENGINE")
-        st.success("**PANDAS**")
-        st.caption("Data Manipulation & Analysis")
-        st.markdown("### 🐍 CORE LANGUAGE")
-        st.warning("**PYTHON**")
-        st.caption("Backend Logic & Integration")
     st.divider()
     st.caption("F1 Championship Predictor Project | Developed by **Totz**")
