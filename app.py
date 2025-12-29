@@ -28,7 +28,7 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (BLACK ICONS + LIGHT THEME) 🎨
+# 3. F1 STYLING (PERFECTED) 🎨
 # ===============================
 st.markdown("""
 <style>
@@ -36,46 +36,29 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
     /* 2. UNIVERSAL FONT (TEXT ONLY) */
-    /* Exclude 'span' and 'i' to prevent breaking Icons */
     html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, li, .stMarkdown, .stText, .stButton {
         font-family: 'Titillium Web', sans-serif !important;
         color: #000000 !important;
     }
 
-    /* 3. ICON VISIBILITY FIX (THE STRONGEST METHOD) */
-    
-    /* Make Header Transparent */
+    /* 3. ICON VISIBILITY FIX */
     header[data-testid="stHeader"] {
         background-color: transparent !important;
     }
-
-    /* Force Sidebar Toggle (Hamburger) & Options Menu to Black */
-    /* We use 'filter: brightness(0)' which turns ANY color to BLACK */
+    /* Force Header & Sidebar Icons to be BLACK */
     header[data-testid="stHeader"] button, 
-    header[data-testid="stHeader"] svg {
+    header[data-testid="stHeader"] svg,
+    section[data-testid="stSidebar"] button,
+    section[data-testid="stSidebar"] button svg {
         color: #000000 !important;
         fill: #000000 !important;
         stroke: #000000 !important;
         filter: brightness(0) !important; 
     }
-
-    /* Force Sidebar Close Arrow (>) to Black */
-    section[data-testid="stSidebar"] button,
-    section[data-testid="stSidebar"] button svg {
-        color: #000000 !important;
-        fill: #000000 !important;
-        filter: brightness(0) !important;
-    }
-
-    /* Hide the top decoration line */
-    div[data-testid="stDecoration"] {
-        display: none;
-    }
+    div[data-testid="stDecoration"] { display: none; }
 
     /* 4. BACKGROUNDS */
-    .stApp {
-        background-color: #ffffff !important;
-    }
+    .stApp { background-color: #ffffff !important; }
 
     /* 5. HEADINGS */
     h1 {
@@ -131,6 +114,11 @@ st.markdown("""
         border: 2px dashed #E10600 !important;
         border-radius: 10px;
     }
+    section[data-testid="stFileUploaderDropzone"] div,
+    section[data-testid="stFileUploaderDropzone"] span,
+    section[data-testid="stFileUploaderDropzone"] small {
+        color: #000000 !important;
+    }
     section[data-testid="stFileUploaderDropzone"] button {
         background-color: #E10600 !important;
         color: #ffffff !important;
@@ -166,7 +154,6 @@ st.markdown("""
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
     }
-    /* Force Sidebar Menu Items to be F1 Font */
     section[data-testid="stSidebar"] .stRadio label {
         color: #111111 !important;
         font-family: 'Titillium Web', sans-serif !important;
@@ -174,12 +161,8 @@ st.markdown("""
         font-weight: 700 !important;
         letter-spacing: 0.5px;
     }
-    section[data-testid="stSidebar"] h1 {
-        color: #E10600 !important;
-    }
-    section[data-testid="stSidebar"] p {
-        color: #000000 !important;
-    }
+    section[data-testid="stSidebar"] h1 { color: #E10600 !important; }
+    section[data-testid="stSidebar"] p { color: #000000 !important; }
 
     /* 11. METRIC CARDS */
     div[data-testid="stMetric"] {
@@ -208,15 +191,13 @@ st.sidebar.markdown("---")
 st.sidebar.caption("Developed by **Totz** 🚀")
 
 # ===============================
-# PAGE: HOME (REORDERED)
+# PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    # 1. HERO TITLE
     st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    # 2. CORE FEATURES (NOW FIRST)
     st.markdown("## 🚀 CORE FEATURES")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -232,7 +213,6 @@ if page == "🏠 Home":
     st.write("") 
     st.divider()
 
-    # 3. HOW THE AI WORKS (NOW SECOND)
     st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
     st.markdown("""
     The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
@@ -244,7 +224,6 @@ if page == "🏠 Home":
     
     st.divider()
 
-    # 4. CALL TO ACTION (LAST)
     st.markdown("### 👉 READY TO START?")
     st.success("""
     **Use the sidebar to explore:**
@@ -359,17 +338,31 @@ elif page == "🎮 Simulator":
             else: st.error("❌ **NO CHANCE.** Needs better results.")
 
 # ===============================
-# PAGE: TECH STACK
+# PAGE: TECH STACK (RE-ADDED FULL CONTENT)
 # ===============================
 elif page == "🛠️ Tech Stack":
     st.title("TECHNOLOGY STACK")
     st.write("The modern framework powering this F1 predictor.")
+    
     col1, col2 = st.columns(2)
+    
     with col1:
         st.markdown("### 💻 FRONTEND")
         st.info("**STREAMLIT**")
-    with col2:
+        st.caption("Interactive Web Interface & Dashboarding")
+        
         st.markdown("### 🧠 AI MODEL")
         st.error("**XGBOOST**")
+        st.caption("Gradient Boosting Machine Learning Algorithm")
+        
+    with col2:
+        st.markdown("### 📊 DATA ENGINE")
+        st.success("**PANDAS**")
+        st.caption("Data Manipulation & Analysis")
+        
+        st.markdown("### 🐍 CORE LANGUAGE")
+        st.warning("**PYTHON**")
+        st.caption("Backend Logic & Integration")
+    
     st.divider()
     st.caption("F1 Championship Predictor Project | Developed by **Totz**")
