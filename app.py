@@ -28,33 +28,42 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (PURE LIGHT THEME FIXED) 🎨
+# 3. F1 STYLING (DROPDOWN & SIDEBAR FIXED) 🎨
 # ===============================
 st.markdown("""
 <style>
     /* 1. IMPORT FONT */
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. UNIVERSAL FONT & COLOR RESET */
+    /* 2. UNIVERSAL FONT */
     html, body, [class*="css"], font, span, div, p, h1, h2, h3, h4, h5, h6 {
         font-family: 'Titillium Web', sans-serif !important;
-        color: #000000 !important; /* Force Black Text Everywhere */
+        color: #000000 !important;
     }
 
-    /* 3. HIDE DEFAULT HEADER */
+    /* 3. HEADER & SIDEBAR BUTTONS FIX */
+    /* Don't hide the header, just make it invisible so buttons work */
     header[data-testid="stHeader"] {
-        display: none !important;
+        background-color: transparent !important;
     }
-    
+    /* Color the Sidebar Toggle & Close Buttons Black */
+    header[data-testid="stHeader"] button, 
+    section[data-testid="stSidebar"] button {
+        color: #000000 !important;
+    }
+    /* Hide the colored decoration bar at the top */
+    div[data-testid="stDecoration"] {
+        display: none;
+    }
+
     /* 4. BACKGROUNDS */
     .stApp {
         background-color: #ffffff !important;
-        margin-top: -30px;
     }
 
     /* 5. HEADINGS */
     h1 {
-        color: #E10600 !important; /* F1 Red */
+        color: #E10600 !important;
         font-weight: 900 !important;
         font-style: italic;
         text-transform: uppercase;
@@ -67,66 +76,75 @@ st.markdown("""
         font-style: italic;
         text-transform: uppercase;
     }
-    h3 {
-        color: #333333 !important;
-        font-weight: 700 !important;
-    }
+    h3 { color: #333333 !important; font-weight: 700 !important; }
     
-    /* 6. INPUTS & DROPDOWNS (THE FIX) */
-    /* The box itself */
+    /* 6. BODY TEXT */
+    p, label, li, .stMarkdown, .stText {
+        color: #111111 !important;
+        font-weight: 600 !important;
+        font-size: 1.15rem !important;
+    }
+
+    /* 7. DROPDOWN POPUP FIX (CRITICAL) */
+    /* This targets the actual popup list container */
+    div[data-baseweb="popover"] {
+        background-color: #ffffff !important;
+    }
+    div[data-baseweb="popover"] div {
+        background-color: #ffffff !important;
+    }
+    /* The menu list items */
+    ul[data-baseweb="menu"] li {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* Hover state for items */
+    ul[data-baseweb="menu"] li:hover {
+        background-color: #E10600 !important;
+        color: #ffffff !important; /* White text on red hover */
+    }
+    /* The selected item in the list */
+    ul[data-baseweb="menu"] li[aria-selected="true"] {
+        background-color: #f0f0f0 !important;
+        color: #E10600 !important;
+        font-weight: bold !important;
+    }
+
+    /* 8. INPUT BOXES */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div,
     div[data-baseweb="base-input"] {
-        background-color: #f8f9fa !important; /* Very Light Grey */
+        background-color: #f8f9fa !important;
         border: 1px solid #ced4da !important;
         color: #000000 !important;
     }
-    
-    /* Text inside inputs */
     input[type="text"], input[type="number"], div[data-baseweb="select"] span {
         color: #000000 !important; 
         font-weight: 600 !important;
     }
-    
-    /* The Dropdown Menu List (When you click it) */
-    ul[data-baseweb="menu"] {
-        background-color: #ffffff !important;
-        border: 1px solid #ddd !important;
-    }
-    li[data-baseweb="menu-item"] {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
-    li[data-baseweb="menu-item"]:hover {
-        background-color: #f0f0f0 !important;
-    }
-    
-    /* 7. FILE UPLOADER (LIGHT THEME FIX) */
+
+    /* 9. FILE UPLOADER */
     section[data-testid="stFileUploaderDropzone"] {
         background-color: #f8f9fa !important;
         border: 2px dashed #E10600 !important;
         border-radius: 10px;
     }
-    section[data-testid="stFileUploaderDropzone"] div {
-        color: #333333 !important;
-    }
+    section[data-testid="stFileUploaderDropzone"] div,
     section[data-testid="stFileUploaderDropzone"] span {
         color: #333333 !important;
-        font-weight: bold;
     }
-    /* The 'Browse files' button */
     section[data-testid="stFileUploaderDropzone"] button {
         background-color: #E10600 !important;
-        color: #ffffff !important; /* White Text on Button */
+        color: #ffffff !important;
         border: none !important;
     }
-    /* The Uploaded File Name Box */
     div[data-testid="stFileUploaderFile"] {
         background-color: #ffffff !important;
         border: 1px solid #ddd;
     }
-    
-    /* 8. BUTTONS */
+
+    /* 10. BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
@@ -144,18 +162,16 @@ st.markdown("""
         transform: translateY(-2px);
     }
 
-    /* 9. SIDEBAR */
+    /* 11. SIDEBAR */
     section[data-testid="stSidebar"] { 
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
     }
-    /* Sidebar Links (Radio Buttons) */
-    div[data-testid="stSidebar"] label {
-        color: #000000 !important;
-        font-weight: 600;
+    section[data-testid="stSidebar"] * {
+        color: #111111 !important;
     }
 
-    /* 10. METRIC CARDS */
+    /* 12. METRIC CARDS */
     div[data-testid="stMetric"] {
         background-color: #ffffff !important;
         border: 1px solid #e0e0e0;
@@ -189,16 +205,6 @@ if page == "🏠 Home":
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
-    st.markdown("""
-    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
-
-    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
-
-    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
-    """)
-    st.write("") 
-
     st.markdown("## 🚀 CORE FEATURES")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -211,6 +217,17 @@ if page == "🏠 Home":
         st.success("🎮 **Championship Simulator**")
         st.markdown("Create your own driver scenario by adjusting points, wins, and podiums.")
 
+    st.write("")
+    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
+    st.markdown("""
+    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
+
+    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
+
+    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
+    """)
+    st.write("") 
+    
     st.divider()
     st.markdown("### 👉 READY TO START?")
     st.success("""
@@ -227,7 +244,6 @@ elif page == "🔮 Predict Season":
     st.title("SEASON PREDICTION")
     st.write("Upload your 2025 dataset to analyze championship odds.")
     
-    # Upload Bar is now Light Grey + Red Button via CSS
     uploaded_file = st.file_uploader("Upload CSV (Required: driver, team, points, wins, podiums)", type=["csv"])
     
     if uploaded_file:
