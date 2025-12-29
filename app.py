@@ -28,7 +28,7 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (MENU SYMBOL FIXED) 🎨
+# 3. F1 STYLING (ICON VISIBILITY FIXED) 🎨
 # ===============================
 st.markdown("""
 <style>
@@ -41,39 +41,32 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* 3. MENU BAR & SIDEBAR ICON FIX (GUARANTEED BLACK) */
-    /* Make header transparent */
-    header[data-testid="stHeader"] {
-        background-color: black !important;
-    }
-    
-    /* Target the button wrapper */
-    header[data-testid="stHeader"] button {
-    color: black !important;
-}
-
-header[data-testid="stHeader"] button svg {
-    fill: black !important;
-    stroke: black !important;
-}
-    
-    /* Force Sidebar Close Button (Arrow/X) to be BLACK */
-    section[data-testid="stSidebar"] button {
-        color: #000000 !important;
-    }
-    section[data-testid="stSidebar"] button svg {
+    /* 3. SYMBOL/ICON COLOR FIX (THE NUCLEAR SOLUTION) */
+    /* Force ALL SVGs in the header and sidebar to be BLACK */
+    header[data-testid="stHeader"] svg,
+    section[data-testid="stSidebar"] svg,
+    button[kind="header"] svg {
         fill: #000000 !important;
+        stroke: #000000 !important;
         color: #000000 !important;
     }
     
-    /* Hide the top decoration line */
-    div[data-testid="stDecoration"] {
-        display: none;
+    /* Force the button container to be transparent/black text */
+    button[kind="header"] {
+        color: #000000 !important;
+        background-color: transparent !important;
+        border: none !important;
     }
 
-    /* 4. BACKGROUNDS */
+    /* 4. BACKGROUNDS & HEADER */
     .stApp {
         background-color: #ffffff !important;
+    }
+    header[data-testid="stHeader"] {
+        background-color: transparent !important;
+    }
+    div[data-testid="stDecoration"] {
+        display: none;
     }
 
     /* 5. HEADINGS */
@@ -210,11 +203,20 @@ st.sidebar.caption("Developed by **Totz** 🚀")
 # PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
-    st.divider() 
+    st.divider()
 
-    
+    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
+    st.markdown("""
+    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
+
+    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
+
+    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
+    """)
+    st.write("") 
+
     st.markdown("## 🚀 CORE FEATURES")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -226,18 +228,6 @@ if page == "🏠 Home":
     with col3:
         st.success("🎮 **Championship Simulator**")
         st.markdown("Create your own driver scenario by adjusting points, wins, and podiums.")
-
-    st.write("")
-
-    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
-    st.markdown("""
-    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
-
-    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
-
-    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
-    """)
-    st.write("")
 
     st.divider()
     st.markdown("### 👉 READY TO START?")
