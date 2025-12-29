@@ -28,109 +28,124 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (PERFECT LIGHT THEME) 🎨
+# 3. F1 STYLING (PURE LIGHT & UNIVERSAL FONT) 🎨
 # ===============================
 st.markdown("""
 <style>
-    /* 1. IMPORT FONTS */
-    @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    /* 1. IMPORT FONT */
+    @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. FORCE LIGHT THEME BACKGROUND */
+    /* 2. UNIVERSAL FONT APPLICATION */
+    html, body, [class*="css"], font, span, div, p, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Titillium Web', sans-serif !important;
+    }
+
+    /* 3. BACKGROUNDS & HEADER */
     .stApp {
         background-color: #ffffff !important;
     }
-    
-    /* 3. HEADINGS (Clean, No Underline) */
-    h1, h2, h3 {
-        font-family: 'Titillium Web', sans-serif !important;
-        text-transform: uppercase;
-        font-style: italic;
-        letter-spacing: 1px;
+    header {
+        background-color: transparent !important;
     }
     
+    /* 4. HEADINGS (F1 Style) */
     h1 {
         color: #E10600 !important; /* F1 Red */
         font-weight: 900 !important;
-        font-size: 3rem !important;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 3.5rem !important;
+        letter-spacing: 1px;
     }
-    
     h2 {
-        color: #15151e !important; /* Dark Carbon */
-        font-weight: 900 !important;
-        padding-bottom: 5px;
-        border: none !important; /* REMOVED RED LINE */
+        color: #1f1f1f !important; /* Dark Black */
+        font-weight: 800 !important;
+        font-style: italic;
+        text-transform: uppercase;
     }
-    
     h3 {
         color: #333333 !important;
+        font-weight: 700 !important;
     }
     
-    /* 4. BODY TEXT (Pitch Black for Readability) */
-    p, label, li, .stMarkdown, .stText, div, span {
-        font-family: 'Roboto', sans-serif;
-        color: #000000 !important;
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    
-    /* 5. SIDEBAR (LIGHT THEME NOW) */
-    section[data-testid="stSidebar"] { 
-        background-color: #f4f4f4 !important; /* Light Grey */
-        border-right: 1px solid #ddd;
-    }
-    section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] span {
-        color: #111111 !important; /* Dark Text for Sidebar */
-        text-shadow: none !important;
-    }
-    section[data-testid="stSidebar"] h1, section[data-testid="stSidebar"] strong {
-        color: #E10600 !important; /* Red Titles in Sidebar */
+    /* 5. BODY TEXT (Readable F1 Font) */
+    p, label, li, .stMarkdown, .stText {
+        color: #111111 !important;
+        font-weight: 600 !important; /* Slightly thicker for F1 feel */
+        font-size: 1.15rem !important;
     }
 
-    /* 6. UPLOAD BAR (DARK BACKDROP FILTER) */
+    /* 6. INPUT WIDGETS (FORCE LIGHT THEME) */
+    /* File Uploader */
     div[data-testid="stFileUploader"] {
-        background-color: #15151e; /* Dark Background */
-        border-radius: 15px;
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    div[data-testid="stFileUploader"] label {
-        color: #ffffff !important; /* White Label */
-    }
-    div[data-testid="stFileUploader"] div {
-        color: #e0e0e0 !important; /* Light Text inside */
-    }
-    div[data-testid="stFileUploader"] button {
-        background-color: #E10600 !important;
-        color: white !important;
-    }
-
-    /* 7. METRIC CARDS */
-    div[data-testid="stMetric"] {
         background-color: #f8f9fa !important;
-        border: 1px solid #ddd;
-        border-left: 5px solid #E10600 !important;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border: 2px dashed #E10600 !important;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    div[data-testid="stFileUploader"] section {
+        background-color: #f8f9fa !important;
+    }
+    div[data-testid="stFileUploader"] span {
+        color: #000000 !important;
     }
     
-    /* 8. BUTTONS */
+    /* Dropdowns (Selectbox) & Number Inputs */
+    div[data-baseweb="select"] > div, 
+    div[data-baseweb="input"] > div {
+        background-color: #f0f2f6 !important; /* Light Grey Background */
+        color: #000000 !important; /* Black Text */
+        border: 1px solid #ccc !important;
+    }
+    div[data-baseweb="select"] span, 
+    div[data-baseweb="input"] input {
+        color: #000000 !important; /* Force Black Text inside inputs */
+        font-weight: 600 !important;
+    }
+    
+    /* Dropdown Menu Items */
+    ul[data-baseweb="menu"] li {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* 7. BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
-        font-family: 'Titillium Web', sans-serif;
-        font-weight: 900;
+        font-weight: 900 !important;
+        font-style: italic;
         text-transform: uppercase;
         border-radius: 5px;
         border: none;
         padding: 0.6rem 2rem;
+        font-size: 1.2rem !important;
         box-shadow: 0 4px 0px #b30500;
     }
     div.stButton > button:hover {
         background-color: #ff1a1a !important;
         transform: translateY(-2px);
     }
+
+    /* 8. SIDEBAR */
+    section[data-testid="stSidebar"] { 
+        background-color: #f4f4f4 !important;
+        border-right: 1px solid #ddd;
+    }
+    section[data-testid="stSidebar"] * {
+        color: #111111 !important;
+    }
+
+    /* 9. METRIC CARDS */
+    div[data-testid="stMetric"] {
+        background-color: #ffffff !important;
+        border: 1px solid #e0e0e0;
+        border-left: 5px solid #E10600 !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    div[data-testid="stMetricLabel"] { color: #666 !important; }
+    div[data-testid="stMetricValue"] { color: #000 !important; }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -145,7 +160,7 @@ page = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("Developed by **Totz** 🚀")
+st.sidebar.caption("Developed by **Totz** 🚀")
 
 # ===============================
 # PAGE: HOME
@@ -156,12 +171,17 @@ if page == "🏠 Home":
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider()
 
-    # 2. INTRO
-    st.markdown("""
-    This application uses **Machine Learning** to analyze Formula 1 driver performance and predict championship outcomes.
+    # 2. INTRO (Combined & Updated Text)
+    st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
     
-    You can predict the season winner, **compare** drivers side-by-side, and simulate **custom** scenarios to understand how points, wins, and podiums influence the title race.
+    st.markdown("""
+    The application analyzes Formula 1 driver performance data using a trained machine learning model based on historical seasons from **2010 to 2024**.
+
+    The model evaluates patterns in **points, wins, and podiums** to generate probability scores that indicate a driver’s likelihood of winning the championship.
+
+    This project demonstrates how machine learning can be effectively applied to sports analytics by transforming raw racing data into meaningful championship insights for prediction, comparison, and simulation.
     """)
+    
     st.write("") 
 
     # 3. CORE FEATURES
@@ -181,32 +201,9 @@ if page == "🏠 Home":
         st.success("🎮 **Championship Simulator**")
         st.markdown("Create your own driver scenario by adjusting points, wins, and podiums to simulate different championship outcomes.")
 
-    st.write("")
     st.divider()
 
-    # 4. COMBINED INSIGHTS SECTION (Merged as requested)
-    st.markdown("## 🧠 PROJECT INSIGHTS & AI LOGIC")
-    
-    c1, c2 = st.columns(2)
-    
-    with c1:
-        st.markdown("### ⚙️ HOW THE AI WORKS")
-        st.markdown("""
-        1️⃣ Performance data is collected for each driver.  
-        2️⃣ The trained ML model evaluates historical patterns (**2010–2024**).  
-        3️⃣ Probability scores are generated for championship success.  
-        4️⃣ Results are presented for prediction, comparison, and simulation.
-        """)
-        
-    with c2:
-        st.markdown("### 🎯 WHY IT MATTERS")
-        st.markdown("""
-        This project demonstrates how machine learning can be applied to sports analytics by converting raw race data into meaningful championship insights.
-        """)
-
-    st.divider()
-
-    # 5. CALL TO ACTION
+    # 4. CALL TO ACTION
     st.markdown("### 👉 READY TO START?")
     st.success("""
     **Use the sidebar to explore:**
@@ -222,7 +219,7 @@ elif page == "🔮 Predict Season":
     st.title("SEASON PREDICTION")
     st.write("Upload your 2025 dataset to analyze championship odds.")
     
-    # Upload Bar will now be DARK due to CSS
+    # Upload Bar is now Light Grey/White via CSS
     uploaded_file = st.file_uploader("Upload CSV (Required: driver, team, points, wins, podiums)", type=["csv"])
     
     if uploaded_file:
