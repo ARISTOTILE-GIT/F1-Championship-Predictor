@@ -28,32 +28,49 @@ def load_model():
 model = load_model()
 
 # ===============================
-# 3. F1 STYLING (ICON FIX APPLIED) 🎨
+# 3. F1 STYLING (BLACK MENU ICONS FIX) 🎨
 # ===============================
 st.markdown("""
 <style>
     /* 1. IMPORT FONT */
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
 
-    /* 2. SAFE FONT APPLICATION (THE FIX) */
-    /* Removed 'span' and 'div' from this list to protect Icons */
+    /* 2. UNIVERSAL FONT (TEXT ONLY) */
     html, body, p, h1, h2, h3, h4, h5, h6, label, input, textarea, li, .stMarkdown, .stText, .stButton {
         font-family: 'Titillium Web', sans-serif !important;
         color: #000000 !important;
     }
 
-    /* 3. HEADER & BACKGROUND */
-    .stApp {
-        background-color: #ffffff !important;
-    }
+    /* 3. MENU BAR & SIDEBAR ICON FIX (THE BLACK ICON FIX) */
+    /* Make the header bar transparent */
     header[data-testid="stHeader"] {
         background-color: transparent !important;
     }
+    
+    /* Force ALL buttons/icons in the header to be BLACK */
+    header[data-testid="stHeader"] button {
+        color: #000000 !important;
+    }
+    header[data-testid="stHeader"] svg {
+        fill: #000000 !important;
+    }
+    
+    /* Force Sidebar Close Button (The Arrow/X) to be BLACK */
+    section[data-testid="stSidebar"] button {
+        color: #000000 !important;
+    }
+    
+    /* Hide the top colored decoration line */
     div[data-testid="stDecoration"] {
         display: none;
     }
 
-    /* 4. HEADINGS */
+    /* 4. BACKGROUNDS */
+    .stApp {
+        background-color: #ffffff !important;
+    }
+
+    /* 5. HEADINGS */
     h1 {
         color: #E10600 !important;
         font-weight: 900 !important;
@@ -70,7 +87,7 @@ st.markdown("""
     }
     h3 { color: #333333 !important; font-weight: 700 !important; }
     
-    /* 5. DROPDOWN POPUP FIX */
+    /* 6. DROPDOWN POPUP */
     div[data-baseweb="popover"],
     div[data-baseweb="menu"],
     ul[data-baseweb="menu"] {
@@ -89,7 +106,7 @@ st.markdown("""
         color: #E10600 !important;
     }
 
-    /* 6. INPUT BOXES */
+    /* 7. INPUT BOXES */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div,
     div[data-baseweb="base-input"] {
@@ -101,7 +118,7 @@ st.markdown("""
         color: #000000 !important; 
     }
 
-    /* 7. FILE UPLOADER */
+    /* 8. FILE UPLOADER */
     section[data-testid="stFileUploaderDropzone"] {
         background-color: #f8f9fa !important;
         border: 2px dashed #E10600 !important;
@@ -118,7 +135,7 @@ st.markdown("""
         border: 1px solid #ddd;
     }
 
-    /* 8. BUTTONS */
+    /* 9. BUTTONS */
     div.stButton > button {
         background-color: #E10600 !important;
         color: white !important;
@@ -137,7 +154,7 @@ st.markdown("""
         transform: translateY(-2px);
     }
 
-    /* 9. SIDEBAR */
+    /* 10. SIDEBAR */
     section[data-testid="stSidebar"] { 
         background-color: #f4f4f4 !important;
         border-right: 1px solid #ddd;
@@ -157,7 +174,7 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* 10. METRIC CARDS */
+    /* 11. METRIC CARDS */
     div[data-testid="stMetric"] {
         background-color: #ffffff !important;
         border: 1px solid #e0e0e0;
