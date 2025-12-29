@@ -5,6 +5,12 @@
 ![XGBoost](https://img.shields.io/badge/AI-XGBoost-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
+## 📸 Live App
+
+👉 **[CLICK HERE FOR LIVE APP](https://f1-championship-predictor-totzmissuashi16.streamlit.app/)** 👈  
+
+---
+
 ### 🚀 The Ultimate AI-Powered Formula 1 Analytics Dashboard
 
 This application uses **Machine Learning (XGBoost)** to analyze historical Formula 1 driver statistics (2010–2024) and predict the probability of winning the World Championship. It features a custom **"F1 Theme" UI**, real-time simulations, and head-to-head driver comparisons.
