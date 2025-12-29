@@ -11,22 +11,6 @@ This application uses **Machine Learning (XGBoost)** to analyze historical Formu
 
 ---
 
-## 📸 Screenshots
-
-| **Home Page** | **Season Prediction** |
-|:---:|:---:|
-| ![Home](https://github.com/user-attachments/assets/placeholder-home.png) | ![Prediction](https://github.com/user-attachments/assets/placeholder-predict.png) |
-| *Clean UI with F1 Fonts* | *Probability Charts & Stats* |
-
-| **Driver Comparison** | **What-If Simulator** |
-|:---:|:---:|
-| ![Compare](https://github.com/user-attachments/assets/placeholder-compare.png) | ![Simulator](https://github.com/user-attachments/assets/placeholder-sim.png) |
-| *Head-to-Head Analysis* | *Real-time Championship Odds* |
-
-*(Note: Replace the placeholder links above with your actual screenshot URLs after uploading images to your repo)*
-
----
-
 ## 🌟 Key Features
 
 ### 1. 🔮 Season Winner Prediction
@@ -70,3 +54,18 @@ This application uses **Machine Learning (XGBoost)** to analyze historical Formu
 ```bash
 git clone [https://github.com/your-username/f1-predictor.git](https://github.com/your-username/f1-predictor.git)
 cd f1-predictor
+----
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+
+### 3. Run the App
+```bash
+streamlit run app.py
+
+### 4. Upload Data
+```bash
+Use the provided f1_2025_test.csv (or any CSV with columns: driver, team, points, wins, podiums) to test the prediction.
+
+
