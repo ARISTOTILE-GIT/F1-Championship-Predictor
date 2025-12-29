@@ -211,7 +211,7 @@ st.sidebar.caption("Developed by **Totz** 🚀")
 # PAGE: HOME
 # ===============================
 if page == "🏠 Home":
-    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR & SIMULATOR</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>FORMULA 1 CHAMPIONSHIP PREDICTOR</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #555 !important;'>Season Prediction • Driver Comparison • Championship Simulator</h3>", unsafe_allow_html=True)
     st.divider() 
 
@@ -227,7 +227,8 @@ if page == "🏠 Home":
     with col3:
         st.success("🎮 **Championship Simulator**")
         st.markdown("Create your own driver scenario by adjusting points, wins, and podiums.")
-        
+
+    st.write("")
 
     st.markdown("## ⚙️ HOW THE AI WORKS & WHY THIS PROJECT MATTERS")
     st.markdown("""
